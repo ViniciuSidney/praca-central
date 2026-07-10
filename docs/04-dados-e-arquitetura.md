@@ -21,26 +21,31 @@ Campos:
 
 ## Fonte dos dados
 
-Na v0.1, o catálogo é estático e fica em:
+O catálogo é estático e fica em:
 
 ```text
 src/scripts/features/apps/apps.model.js
 ```
 
-Os endereços externos ficam separados em:
+Os endereços externos ficam em:
 
 ```text
 src/scripts/core/config.js
 ```
 
-Essa separação permite atualizar links sem alterar a lógica ou a interface.
-
 ## Persistência
 
-A lista de aplicações não é salva no navegador. O único dado persistido na v0.1 é a preferência de tema:
+A preferência de tema é salva no `localStorage`:
 
 ```text
 praca-central:theme
+```
+
+Os arquivos offline são armazenados pelo navegador no **Cache Storage**, separados em:
+
+```text
+praca-central-static-v0.2.0
+praca-central-runtime-v0.2.0
 ```
 
 ## Arquitetura JavaScript
@@ -48,50 +53,84 @@ praca-central:theme
 ```text
 src/scripts
 ├── core
-│   ├── config.js
-│   └── constants.js
 ├── features
 │   ├── apps
-│   │   ├── apps.model.js
-│   │   ├── apps.service.js
-│   │   ├── apps.ui.js
-│   │   └── apps.controller.js
+│   ├── pwa
+│   │   ├── pwa.service.js
+│   │   ├── pwa.ui.js
+│   │   └── pwa.controller.js
 │   └── theme
-│       └── theme.controller.js
 ├── shared
 ├── app.js
 └── main.js
 ```
 
-### Responsabilidades
+### Feature PWA
 
-- `apps.model.js`: catálogo, categorias, regras de busca e validação de link;
-- `apps.service.js`: consulta, filtro e contadores;
-- `apps.ui.js`: cards, modal, estado vazio e contadores visuais;
-- `apps.controller.js`: eventos, estado do filtro e coordenação da feature;
-- `theme.controller.js`: tema e persistência;
-- `app.js`: inicialização das features e modais globais;
-- `main.js`: ponto de entrada.
+- `pwa.service.js`:
+  - captura o evento de instalação;
+  - registra o service worker;
+  - detecta modo instalado;
+  - acompanha conexão;
+  - detecta workers aguardando;
+  - aplica atualização sob confirmação.
+
+- `pwa.ui.js`:
+  - mostra ou oculta botões de instalação;
+  - exibe badge de aplicação instalada;
+  - controla avisos offline e de atualização;
+  - aplica estado de carregamento.
+
+- `pwa.controller.js`:
+  - liga eventos aos elementos da interface;
+  - conecta observadores do serviço à UI;
+  - inicia o registro do service worker.
+
+## Service worker
+
+Arquivo:
+
+```text
+service-worker.js
+```
+
+Ele fica na raiz para que seu escopo padrão alcance toda a Praça Central publicada.
+
+### Ciclo
+
+- `install`: cria o cache estático e adiciona o shell principal;
+- `activate`: remove caches antigos e assume clientes abertos;
+- `fetch`: intercepta apenas requisições GET da mesma origem;
+- `message`: recebe `SKIP_WAITING` para atualizações confirmadas.
+
+### Estratégias
+
+- navegação: **network first** com fallback para o HTML armazenado;
+- arquivos locais: **stale while revalidate**;
+- links externos: não interceptados.
+
+## Manifesto
+
+Arquivo:
+
+```text
+public/manifest.json
+```
+
+Os caminhos `start_url` e `scope` são relativos ao local do manifesto e retornam à raiz do projeto. Isso mantém compatibilidade com a subpasta usada pelo GitHub Pages.
 
 ## Arquitetura visual
 
-A página combina partes dos layouts do Modelo de Projeto:
+A página combina:
 
-- Hub Inicial para apresentação;
-- Galeria de Cards para aplicações;
-- Modal de Ação para detalhes;
-- Empty State para ausência de resultados.
+- Hub Inicial;
+- Galeria de Cards;
+- Modal de Ação;
+- Empty State;
+- avisos flutuantes PWA.
 
-Os estilos específicos ficam em:
+Os estilos específicos permanecem em:
 
 ```text
 src/styles/pages/home.css
-```
-
-Os temas ficam em:
-
-```text
-src/styles/themes/app-theme.css
-src/styles/themes/dark.css
-src/styles/themes/light.css
 ```

@@ -4,9 +4,11 @@
 
 import { initAppsFeature } from "./features/apps/apps.controller.js";
 import { initThemeFeature } from "./features/theme/theme.controller.js";
+import { initPwaFeature } from "./features/pwa/pwa.controller.js";
 
 export function initApp() {
   initThemeFeature();
+  initPwaFeature();
   initAppsFeature();
   initAboutModal();
   initGlobalUI();

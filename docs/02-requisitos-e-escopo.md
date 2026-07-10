@@ -13,47 +13,64 @@
 - **RF09** — Salvar a preferência de tema no navegador.
 - **RF10** — Exibir estado vazio quando a busca ou o filtro não retornar resultados.
 - **RF11** — Atualizar contadores e quantidade de resultados dinamicamente.
+- **RF12** — Registrar um service worker para a Praça Central.
+- **RF13** — Disponibilizar instalação quando o navegador emitir o evento compatível.
+- **RF14** — Ocultar os controles de instalação quando a Central já estiver instalada.
+- **RF15** — Manter a interface principal utilizável sem conexão após o primeiro carregamento completo.
+- **RF16** — Informar quando o dispositivo estiver offline.
+- **RF17** — Avisar quando existir uma nova versão do service worker aguardando ativação.
+- **RF18** — Permitir ao usuário aplicar a atualização e recarregar a aplicação.
+- **RF19** — Remover caches antigos após a ativação de uma nova versão.
 
 ## Requisitos não funcionais
 
 - **RNF01** — A aplicação deve ser responsiva em desktop, tablet e celular.
 - **RNF02** — A interface deve ser clara, consistente e acessível por teclado.
-- **RNF03** — A aplicação deve funcionar sem frameworks ou dependências externas.
+- **RNF03** — A aplicação deve funcionar sem frameworks ou dependências externas obrigatórias.
 - **RNF04** — O carregamento deve ser rápido e adequado ao GitHub Pages.
 - **RNF05** — Os links das aplicações devem ficar centralizados em um arquivo de configuração.
 - **RNF06** — A arquitetura JavaScript deve manter separação entre model, service, UI e controller.
 - **RNF07** — O usuário não deve ser enviado para links vazios ou quebrados de forma intencional.
+- **RNF08** — O service worker deve controlar apenas requisições da mesma origem e dentro do escopo da Central.
+- **RNF09** — Requisições externas não devem ser armazenadas pelo cache da Central.
+- **RNF10** — A implementação deve funcionar em HTTPS e em `localhost`.
+- **RNF11** — A ausência de suporte a instalação customizada não deve impedir o uso normal do site.
+- **RNF12** — Atualizações não devem substituir silenciosamente uma versão em uso.
 
-## Escopo da v0.1
+## Escopo da v0.2
 
 ### Entra nesta versão
 
-- identidade visual da Praça Central;
-- cards do Time Task e Note and Finish;
-- busca;
-- filtros de categoria;
-- modal de detalhes;
-- tema claro e escuro;
-- preferência de tema salva;
-- responsividade;
-- documentos iniciais;
-- estrutura pronta para novas aplicações.
+- todos os recursos consolidados da v0.1;
+- Web App Manifest completo;
+- ícones de 192 px, 512 px, Apple Touch e maskable;
+- service worker na raiz do projeto;
+- cache do shell principal;
+- funcionamento offline da interface da Central;
+- botão de instalação progressivo;
+- detecção de modo instalado;
+- aviso offline;
+- detecção de nova versão;
+- atualização por confirmação do usuário;
+- limpeza de caches antigos;
+- documentação e testes PWA.
 
 ### Fica para versões futuras
 
-- imagens reais ou capturas de tela das aplicações;
-- favoritos e histórico de acessos;
-- categorias adicionais;
-- ordenação dos cards;
-- painel de aplicações em desenvolvimento;
-- atualização automática de versão por integração externa;
-- modo PWA.
+- capturas de tela no manifesto;
+- interface de instalação específica para iOS;
+- histórico local de acessos;
+- favoritos;
+- sincronização ou integração entre aplicações;
+- notificações push;
+- sincronização em segundo plano;
+- atalhos adicionais no ícone instalado.
 
 ### Fora do escopo
 
+- instalar automaticamente Time Task e Note and Finish;
+- armazenar offline conteúdo de outros domínios;
 - login e contas de usuário;
 - banco de dados;
-- edição das aplicações pela própria Central;
-- compartilhamento de dados entre Time Task e Note and Finish;
-- incorporação das aplicações por iframe;
-- painel administrativo remoto.
+- painel administrativo remoto;
+- compartilhamento de dados entre aplicações.

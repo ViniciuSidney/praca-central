@@ -871,14 +871,8 @@ body.has-open-modal {
     padding-inline: var(--space-md);
   }
 
-  .central-brand small,
-  .central-theme-button span:last-child {
+  .central-brand small {
     display: none;
-  }
-
-  .central-theme-button {
-    width: 2.5rem;
-    padding-inline: 0;
   }
 
   .central-hero,
@@ -972,5 +966,150 @@ body.has-open-modal {
 
   .central-modal-title-group {
     align-items: flex-start;
+  }
+}
+
+/* ============================= */
+/* PWA: instalação e atualizações */
+/* ============================= */
+
+.central-header__actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.central-install-button {
+  white-space: nowrap;
+}
+
+.central-map-card__badges {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.central-pwa-stack {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  z-index: calc(var(--z-modal) + 1);
+  width: min(calc(100% - 2rem), 470px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  pointer-events: none;
+}
+
+.central-pwa-banner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  box-shadow: var(--shadow-xl);
+  backdrop-filter: blur(18px);
+  pointer-events: auto;
+  animation: centralPwaEnter 180ms ease-out;
+}
+
+.central-pwa-banner--offline {
+  border-left: 0.3rem solid var(--color-warning);
+}
+
+.central-pwa-banner--update {
+  grid-template-columns: auto minmax(0, 1fr);
+  border-left: 0.3rem solid var(--color-primary);
+}
+
+.central-pwa-banner__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+.central-pwa-banner--offline .central-pwa-banner__icon {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
+.central-pwa-banner strong {
+  display: block;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+}
+
+.central-pwa-banner p {
+  margin-top: 0.2rem;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+}
+
+.central-pwa-banner__actions {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin-top: var(--space-xs);
+}
+
+@keyframes centralPwaEnter {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .central-header__actions {
+    gap: var(--space-xs);
+  }
+
+  .central-header-action__label {
+    display: none;
+  }
+
+  .central-install-button,
+  .central-theme-button {
+    width: 2.5rem;
+    padding-inline: 0;
+  }
+
+  .central-pwa-stack {
+    right: 0.625rem;
+    bottom: 0.625rem;
+    width: calc(100% - 1.25rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .central-pwa-banner--update {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .central-pwa-banner__actions {
+    grid-column: 1 / -1;
+  }
+
+  .central-pwa-banner__actions .btn {
+    flex: 1;
   }
 }

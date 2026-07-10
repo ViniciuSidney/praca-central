@@ -3,10 +3,10 @@
 ## Informações
 
 Projeto: Praça Central  
-Versão testada: v0.1  
-Data inicial: 09/07/2026
+Versão testada: v0.2  
+Data inicial: 10/07/2026
 
-## Testes funcionais
+## Testes funcionais existentes
 
 | Código | Teste | Resultado esperado | Status inicial |
 |---|---|---|---|
@@ -18,32 +18,64 @@ Data inicial: 09/07/2026
 | T06 | Pesquisa sem resultado | Estado vazio é exibido | Pendente |
 | T07 | Limpar busca e filtros | Todos os cards voltam a aparecer | Pendente |
 | T08 | Abrir detalhes | Modal recebe dados corretos do card | Pendente |
-| T09 | Fechar modal por botão | Modal é ocultado | Pendente |
-| T10 | Fechar modal por clique externo | Modal é ocultado | Pendente |
-| T11 | Fechar modal por Esc | Modal é ocultado | Pendente |
-| T12 | Alternar tema | Tema muda entre claro e escuro | Pendente |
-| T13 | Recarregar após trocar tema | Tema escolhido é restaurado | Pendente |
-| T14 | Link não configurado | Botão aparece desabilitado | Pendente |
-| T15 | Link configurado | Aplicação abre em nova aba | Pendente |
+| T09 | Fechar modal por botão, fundo e Esc | Modal é ocultado | Pendente |
+| T10 | Alternar e restaurar tema | Tema muda e persiste | Pendente |
+| T11 | Link configurado | Aplicação abre em nova aba | Pendente |
+
+## Testes PWA
+
+| Código | Teste | Resultado esperado | Status inicial |
+|---|---|---|---|
+| P01 | Carregar manifesto | Manifesto é reconhecido sem erros | Pendente |
+| P02 | Validar ícones | Ícones 192, 512 e maskable são reconhecidos | Pendente |
+| P03 | Registrar service worker | Worker fica ativo no escopo do projeto | Pendente |
+| P04 | Verificar precache | Cache estático contém o shell principal | Pendente |
+| P05 | Instalação disponível | Botões aparecem quando o navegador permite | Pendente |
+| P06 | Aceitar instalação | PWA é instalada e abre como standalone | Pendente |
+| P07 | PWA já instalada | Botões somem e badge “Instalada” aparece | Pendente |
+| P08 | Recarregar offline | Interface principal continua carregando | Pendente |
+| P09 | Perder conexão | Aviso offline é exibido | Pendente |
+| P10 | Recuperar conexão | Aviso offline desaparece | Pendente |
+| P11 | Nova versão do worker | Aviso de atualização aparece | Pendente |
+| P12 | Atualizar agora | Novo worker assume e a página recarrega uma vez | Pendente |
+| P13 | Ativar nova versão | Caches antigos são removidos | Pendente |
+| P14 | Abrir destino offline | Central não promete acesso ao conteúdo externo | Pendente |
+| P15 | Navegação externa | Requisição externa não é armazenada pelo worker | Pendente |
 
 ## Testes responsivos
 
 | Código | Largura | Resultado esperado | Status inicial |
 |---|---:|---|---|
 | R01 | 1440 px | Hero em duas colunas e cards lado a lado | Pendente |
-| R02 | 1024 px | Hero e conteúdo sem corte ou rolagem horizontal | Pendente |
-| R03 | 768 px | Galeria em uma coluna e toolbar adaptada | Pendente |
-| R04 | 390 px | Botões, cards e modais utilizáveis por toque | Pendente |
+| R02 | 1024 px | Conteúdo sem corte ou rolagem horizontal | Pendente |
+| R03 | 768 px | Galeria e cabeçalho adaptados | Pendente |
+| R04 | 390 px | Controles PWA, cards e modais utilizáveis por toque | Pendente |
 
-## Testes de acessibilidade básica
+## Como simular offline
+
+1. Carregar a aplicação online.
+2. Confirmar o worker ativo.
+3. DevTools → Network → Offline.
+4. Recarregar a página.
+5. Confirmar interface e aviso offline.
+6. Voltar para Online e confirmar remoção do aviso.
+
+## Como testar uma atualização
+
+1. Publicar ou executar a v0.2 com o worker ativo.
+2. Alterar `CACHE_VERSION` no `service-worker.js`.
+3. Modificar um arquivo visual pequeno.
+4. Recarregar ou voltar à aba.
+5. Confirmar o aviso de nova versão.
+6. Clicar em **Atualizar agora**.
+7. Confirmar recarga única e remoção do cache anterior.
+
+## Acessibilidade básica
 
 - navegação por Tab;
-- foco visível em links e botões;
-- `aria-label` nos controles sem texto suficiente;
-- fechamento dos modais com Esc;
-- contraste em tema claro e escuro;
+- foco visível;
+- botões de instalação e atualização com texto claro;
+- avisos com região `aria-live`;
+- modais fechando com Esc;
+- contraste em temas claro e escuro;
 - respeito a `prefers-reduced-motion`.
-
-## Observações
-
-Os links externos não podem ser validados até que os endereços reais sejam inseridos em `src/scripts/core/config.js`.

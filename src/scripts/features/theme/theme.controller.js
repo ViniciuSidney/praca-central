@@ -13,6 +13,7 @@ export function initThemeFeature() {
   const button = document.querySelector("#themeToggleButton");
   const label = document.querySelector("#themeToggleLabel");
   const icon = document.querySelector("#themeToggleIcon");
+  const themeColorMeta = document.querySelector("#themeColorMeta");
 
   if (!button || !label || !icon) {
     return;
@@ -21,13 +22,13 @@ export function initThemeFeature() {
   const savedTheme = getStorageItem(THEME_STORAGE_KEY, "dark");
   const initialTheme = THEMES.includes(savedTheme) ? savedTheme : "dark";
 
-  applyTheme(initialTheme, { button, label, icon });
+  applyTheme(initialTheme, { button, label, icon, themeColorMeta });
 
   button.addEventListener("click", () => {
     const currentTheme = document.documentElement.dataset.theme || "dark";
     const nextTheme = currentTheme === "dark" ? "light" : "dark";
 
-    applyTheme(nextTheme, { button, label, icon });
+    applyTheme(nextTheme, { button, label, icon, themeColorMeta });
     setStorageItem(THEME_STORAGE_KEY, nextTheme);
   });
 }
@@ -39,4 +40,8 @@ function applyTheme(theme, elements) {
   elements.button.setAttribute("aria-pressed", String(isLight));
   elements.label.textContent = isLight ? "Tema escuro" : "Tema claro";
   elements.icon.textContent = isLight ? "☾" : "☀";
+
+  if (elements.themeColorMeta) {
+    elements.themeColorMeta.content = isLight ? "#f5f2ec" : "#0d1020";
+  }
 }

@@ -18,6 +18,6 @@ export const PROJECT_LINKS = {
 
 export const APP_META = {
   name: "Praça Central",
-  version: "0.1.0",
+  version: "0.2.0",
   storageNamespace: "praca-central",
 };

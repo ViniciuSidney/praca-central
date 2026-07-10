@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" id="themeColorMeta" content="#0d1020" />
+    <meta name="application-name" content="Praça Central" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Praça Central" />
     <meta
       name="description"
       content="Praça Central: uma central pessoal para acessar aplicações web úteis em um só lugar."
@@ -11,6 +16,7 @@
     <title>Praça Central | Central de Aplicações</title>
 
     <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+    <link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.png" />
     <link rel="manifest" href="./public/manifest.json" />
     <link rel="stylesheet" href="./src/styles/main.css" />
   </head>
@@ -38,16 +44,28 @@
           <a href="#sobre">Sobre</a>
         </nav>
 
-        <button
-          class="btn btn-secondary btn-sm central-theme-button"
-          id="themeToggleButton"
-          type="button"
-          aria-label="Alternar tema"
-          aria-pressed="false"
-        >
-          <span aria-hidden="true" id="themeToggleIcon">☀</span>
-          <span id="themeToggleLabel">Tema claro</span>
-        </button>
+        <div class="central-header__actions">
+          <button
+            class="btn btn-success btn-sm central-install-button"
+            type="button"
+            data-pwa-install
+            hidden
+          >
+            <span aria-hidden="true">⇩</span>
+            <span class="central-header-action__label">Instalar</span>
+          </button>
+
+          <button
+            class="btn btn-secondary btn-sm central-theme-button"
+            id="themeToggleButton"
+            type="button"
+            aria-label="Alternar tema"
+            aria-pressed="false"
+          >
+            <span aria-hidden="true" id="themeToggleIcon">☀</span>
+            <span class="central-header-action__label" id="themeToggleLabel">Tema claro</span>
+          </button>
+        </div>
       </header>
 
       <main>
@@ -68,6 +86,11 @@
                 <span aria-hidden="true">↓</span>
               </a>
 
+              <button class="btn btn-success btn-lg" type="button" data-pwa-install hidden>
+                Instalar Praça Central
+                <span aria-hidden="true">⇩</span>
+              </button>
+
               <button class="btn btn-outline btn-lg" id="openAboutButton" type="button">
                 Conhecer a Central
               </button>
@@ -78,8 +101,11 @@
             <div class="central-map-card__glow" aria-hidden="true"></div>
 
             <div class="central-map-card__top">
-              <span class="badge badge-success badge-dot">Central ativa</span>
-              <span class="central-map-card__version">v0.1</span>
+              <div class="central-map-card__badges">
+                <span class="badge badge-success badge-dot">Central ativa</span>
+                <span class="badge badge-primary" id="pwaInstalledBadge" hidden>Instalada</span>
+              </div>
+              <span class="central-map-card__version">v0.2</span>
             </div>
 
             <div class="central-map-card__symbol" aria-hidden="true">
@@ -183,7 +209,7 @@
         </div>
 
         <div class="central-footer__meta">
-          <span>v0.1 — Fundação da Praça</span>
+          <span>v0.2 — Praça Instalável</span>
           <span>© <span id="currentYear"></span> Vinícius Sidney</span>
         </div>
       </footer>
@@ -257,14 +283,15 @@
 
         <div class="modal-body central-about-content">
           <p>
-            A Praça Central é uma aplicação independente que funciona como porta de entrada para outras
-            ferramentas publicadas. Ela não substitui as aplicações: apenas organiza e apresenta cada caminho.
+            A Praça Central é uma aplicação independente e instalável que funciona como porta de entrada para outras
+            ferramentas publicadas. Ela não substitui as aplicações: organiza os caminhos e mantém sua própria
+            interface disponível mesmo quando a conexão estiver indisponível.
           </p>
 
           <div class="central-about-grid">
             <article class="panel panel-accent">
               <h3 class="panel-title">Leve</h3>
-              <p class="panel-description">Sem login, banco de dados ou dependências externas na v0.1.</p>
+              <p class="panel-description">Sem login, banco de dados ou dependências externas obrigatórias.</p>
             </article>
             <article class="panel panel-accent">
               <h3 class="panel-title">Expansível</h3>
@@ -280,6 +307,29 @@
         <footer class="modal-actions">
           <button class="btn btn-primary" id="confirmAboutButton" type="button">Entendi</button>
         </footer>
+      </section>
+    </div>
+
+
+    <div class="central-pwa-stack" aria-live="polite" aria-atomic="true">
+      <section class="central-pwa-banner central-pwa-banner--offline" id="pwaOfflineBanner" role="status" hidden>
+        <span class="central-pwa-banner__icon" aria-hidden="true">⌁</span>
+        <div>
+          <strong>Você está offline</strong>
+          <p>A Praça continua acessível, mas abrir outros destinos pode exigir conexão.</p>
+        </div>
+      </section>
+
+      <section class="central-pwa-banner central-pwa-banner--update" id="pwaUpdateBanner" role="status" hidden>
+        <span class="central-pwa-banner__icon" aria-hidden="true">↻</span>
+        <div class="central-pwa-banner__content">
+          <strong>Nova versão disponível</strong>
+          <p>Atualize a Praça Central para usar os arquivos mais recentes.</p>
+        </div>
+        <div class="central-pwa-banner__actions">
+          <button class="btn btn-primary btn-sm" id="pwaUpdateButton" type="button">Atualizar agora</button>
+          <button class="btn btn-ghost btn-sm" id="pwaDismissUpdateButton" type="button">Depois</button>
+        </div>
       </section>
     </div>
 
