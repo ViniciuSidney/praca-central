@@ -1,0 +1,19 @@
+[data-theme="dark"] {
+  --color-bg: #0d1020;
+  --color-surface: #171b30;
+  --color-surface-soft: #222842;
+  --color-surface-strong: #0b0e1a;
+
+  --color-text: #f8f8ff;
+  --color-text-muted: #c8cbe0;
+  --color-text-soft: #8f95b3;
+  --color-text-inverse: #17130b;
+
+  --color-border: rgba(225, 228, 255, 0.11);
+  --color-border-strong: rgba(225, 228, 255, 0.23);
+
+  --central-header-bg: rgba(13, 16, 32, 0.82);
+  --central-hero-surface: rgba(23, 27, 48, 0.76);
+  --central-card-surface: rgba(23, 27, 48, 0.92);
+  --central-grid-line: rgba(155, 148, 240, 0.055);
+}

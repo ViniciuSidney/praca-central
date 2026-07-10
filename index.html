@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Praça Central: uma central pessoal para acessar aplicações web úteis em um só lugar."
+    />
+
+    <title>Praça Central | Central de Aplicações</title>
+
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+    <link rel="manifest" href="./public/manifest.json" />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+  </head>
+
+  <body>
+    <div id="app" class="central-app">
+      <header class="central-header">
+        <a class="central-brand" href="#inicio" aria-label="Voltar ao início da Praça Central">
+          <span class="central-brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img">
+              <circle cx="24" cy="24" r="18"></circle>
+              <path d="M24 10v28M10 24h28"></path>
+              <circle cx="24" cy="24" r="5"></circle>
+            </svg>
+          </span>
+
+          <span>
+            <strong>Praça Central</strong>
+            <small>Central de aplicações</small>
+          </span>
+        </a>
+
+        <nav class="central-header__nav" aria-label="Navegação principal">
+          <a href="#aplicacoes">Aplicações</a>
+          <a href="#sobre">Sobre</a>
+        </nav>
+
+        <button
+          class="btn btn-secondary btn-sm central-theme-button"
+          id="themeToggleButton"
+          type="button"
+          aria-label="Alternar tema"
+          aria-pressed="false"
+        >
+          <span aria-hidden="true" id="themeToggleIcon">☀</span>
+          <span id="themeToggleLabel">Tema claro</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="central-hero" id="inicio">
+          <div class="central-hero__content">
+            <span class="central-eyebrow">Seu ecossistema pessoal</span>
+
+            <h1>Seus caminhos digitais começam aqui.</h1>
+
+            <p>
+              Uma praça central para reunir ferramentas que já fazem parte do seu dia a dia.
+              Escolha um destino, abra a aplicação e siga com o que precisa ser feito.
+            </p>
+
+            <div class="central-hero__actions">
+              <a class="btn btn-primary btn-lg" href="#aplicacoes">
+                Explorar aplicações
+                <span aria-hidden="true">↓</span>
+              </a>
+
+              <button class="btn btn-outline btn-lg" id="openAboutButton" type="button">
+                Conhecer a Central
+              </button>
+            </div>
+          </div>
+
+          <aside class="central-map-card" aria-label="Resumo da central">
+            <div class="central-map-card__glow" aria-hidden="true"></div>
+
+            <div class="central-map-card__top">
+              <span class="badge badge-success badge-dot">Central ativa</span>
+              <span class="central-map-card__version">v0.1</span>
+            </div>
+
+            <div class="central-map-card__symbol" aria-hidden="true">
+              <span class="central-map-card__orbit central-map-card__orbit--one"></span>
+              <span class="central-map-card__orbit central-map-card__orbit--two"></span>
+              <span class="central-map-card__core">PC</span>
+            </div>
+
+            <div class="central-map-card__stats">
+              <div>
+                <strong id="totalAppsCounter">2</strong>
+                <span>destinos</span>
+              </div>
+
+              <div>
+                <strong id="availableAppsCounter">2</strong>
+                <span>disponíveis</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="central-section central-section--apps" id="aplicacoes">
+          <header class="central-section__header">
+            <div>
+              <span class="central-eyebrow">Destinos disponíveis</span>
+              <h2>Escolha para onde ir</h2>
+              <p>
+                Cada aplicação resolve uma necessidade específica. A Central apenas organiza os caminhos.
+              </p>
+            </div>
+
+            <span class="badge badge-primary" id="visibleAppsBadge">2 aplicações</span>
+          </header>
+
+          <div class="central-toolbar">
+            <label class="central-search">
+              <span class="central-search__icon" aria-hidden="true">⌕</span>
+              <span class="sr-only">Pesquisar aplicações</span>
+              <input
+                class="input"
+                id="appSearchInput"
+                type="search"
+                placeholder="Pesquisar por nome, função ou categoria..."
+                autocomplete="off"
+              />
+            </label>
+
+            <div class="central-filters" role="group" aria-label="Filtrar aplicações por categoria">
+              <button class="btn btn-secondary btn-sm" type="button" data-app-filter="all">
+                Todas
+              </button>
+              <button class="btn btn-outline btn-sm" type="button" data-app-filter="foco">
+                Foco
+              </button>
+              <button class="btn btn-outline btn-sm" type="button" data-app-filter="organizacao">
+                Organização
+              </button>
+            </div>
+          </div>
+
+          <div class="central-app-grid" id="appsGrid" aria-live="polite">
+            <!-- Os cards são renderizados pelo JavaScript. -->
+          </div>
+
+          <section class="central-empty-state" id="appsEmptyState" hidden>
+            <div class="empty-state-icon" aria-hidden="true">⌕</div>
+            <h3>Nenhum caminho encontrado</h3>
+            <p>Tente outro termo de busca ou remova o filtro atual.</p>
+            <button class="btn btn-secondary" id="clearAppFiltersButton" type="button">
+              Limpar busca e filtros
+            </button>
+          </section>
+        </section>
+
+        <section class="central-section central-section--future" id="sobre">
+          <article class="central-future-card">
+            <div class="central-future-card__icon" aria-hidden="true">＋</div>
+
+            <div class="central-future-card__content">
+              <span class="central-eyebrow">Praça em crescimento</span>
+              <h2>Novos caminhos podem surgir daqui.</h2>
+              <p>
+                A Praça Central foi criada para crescer junto com suas aplicações. Cada nova ferramenta
+                publicada pode ganhar um espaço próprio sem complicar a estrutura atual.
+              </p>
+            </div>
+
+            <div class="central-future-card__aside">
+              <span>Próximo passo</span>
+              <strong>Adicionar a terceira aplicação</strong>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <footer class="central-footer">
+        <div>
+          <strong>Praça Central</strong>
+          <p>Um ponto de encontro para aplicações úteis e independentes.</p>
+        </div>
+
+        <div class="central-footer__meta">
+          <span>v0.1 — Fundação da Praça</span>
+          <span>© <span id="currentYear"></span> Vinícius Sidney</span>
+        </div>
+      </footer>
+    </div>
+
+    <div class="modal-overlay" id="appDetailsModal" hidden>
+      <section
+        class="modal modal-lg modal-accent"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="appDetailsTitle"
+      >
+        <header class="modal-header">
+          <div class="central-modal-title-group">
+            <div class="central-modal-icon" id="appDetailsIcon" aria-hidden="true"></div>
+            <div>
+              <span class="central-modal-kicker" id="appDetailsCategory">Aplicação</span>
+              <h2 class="modal-title" id="appDetailsTitle">Detalhes da aplicação</h2>
+            </div>
+          </div>
+
+          <button class="modal-close" id="closeAppDetailsButton" type="button" aria-label="Fechar detalhes">
+            ×
+          </button>
+        </header>
+
+        <div class="modal-body central-modal-body">
+          <p id="appDetailsDescription"></p>
+
+          <div class="central-modal-info-grid">
+            <article>
+              <span>Versão</span>
+              <strong id="appDetailsVersion">—</strong>
+            </article>
+            <article>
+              <span>Status</span>
+              <strong id="appDetailsStatus">—</strong>
+            </article>
+          </div>
+
+          <div>
+            <h3 class="central-modal-section-title">O que você encontra</h3>
+            <ul class="central-feature-list" id="appDetailsFeatures"></ul>
+          </div>
+
+          <div class="badge-group" id="appDetailsTags"></div>
+        </div>
+
+        <footer class="modal-actions">
+          <button class="btn btn-secondary" id="cancelAppDetailsButton" type="button">Voltar</button>
+          <a class="btn btn-primary" id="openAppFromModalLink" href="#" target="_blank" rel="noopener noreferrer">
+            Abrir aplicação
+            <span aria-hidden="true">↗</span>
+          </a>
+        </footer>
+      </section>
+    </div>
+
+    <div class="modal-overlay" id="aboutModal" hidden>
+      <section class="modal modal-lg modal-glass" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
+        <header class="modal-header">
+          <div>
+            <span class="central-modal-kicker">Sobre o projeto</span>
+            <h2 class="modal-title" id="aboutModalTitle">Uma praça, vários destinos</h2>
+          </div>
+
+          <button class="modal-close" id="closeAboutButton" type="button" aria-label="Fechar informações">
+            ×
+          </button>
+        </header>
+
+        <div class="modal-body central-about-content">
+          <p>
+            A Praça Central é uma aplicação independente que funciona como porta de entrada para outras
+            ferramentas publicadas. Ela não substitui as aplicações: apenas organiza e apresenta cada caminho.
+          </p>
+
+          <div class="central-about-grid">
+            <article class="panel panel-accent">
+              <h3 class="panel-title">Leve</h3>
+              <p class="panel-description">Sem login, banco de dados ou dependências externas na v0.1.</p>
+            </article>
+            <article class="panel panel-accent">
+              <h3 class="panel-title">Expansível</h3>
+              <p class="panel-description">Novas aplicações entram pela configuração de dados da feature.</p>
+            </article>
+            <article class="panel panel-accent">
+              <h3 class="panel-title">Independente</h3>
+              <p class="panel-description">Cada ferramenta continua funcionando e evoluindo em seu próprio repositório.</p>
+            </article>
+          </div>
+        </div>
+
+        <footer class="modal-actions">
+          <button class="btn btn-primary" id="confirmAboutButton" type="button">Entendi</button>
+        </footer>
+      </section>
+    </div>
+
+    <script type="module" src="./src/scripts/main.js"></script>
+  </body>
+</html>

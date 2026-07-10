@@ -1,0 +1,32 @@
+:root {
+  --app-name: "Praça Central";
+
+  --color-primary: #f2b84b;
+  --color-primary-soft: rgba(242, 184, 75, 0.18);
+  --color-primary-hover: #ffc965;
+  --color-primary-active: #d89b30;
+
+  --color-secondary: #7367d8;
+  --color-secondary-hover: #6559c7;
+
+  --color-success: #45c996;
+  --color-success-soft: rgba(69, 201, 150, 0.16);
+  --color-warning: #f2b84b;
+  --color-warning-soft: rgba(242, 184, 75, 0.17);
+  --color-danger: #ef6f78;
+  --color-danger-soft: rgba(239, 111, 120, 0.16);
+  --color-info: #61aef4;
+
+  --central-violet: #8d7df0;
+  --central-violet-soft: rgba(141, 125, 240, 0.18);
+  --central-teal: #52d2c2;
+  --central-teal-soft: rgba(82, 210, 194, 0.18);
+  --central-gold: #f2b84b;
+  --central-gold-soft: rgba(242, 184, 75, 0.18);
+
+  --app-header-radius: var(--radius-xl);
+  --app-panel-radius: var(--radius-xl);
+  --app-card-radius: var(--radius-xl);
+  --app-title-letter-spacing: -0.03em;
+  --app-shadow-intensity: var(--shadow-lg);
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Praça Central",
+  "short_name": "Praça Central",
+  "description": "Central pessoal para acessar aplicações web úteis em um só lugar.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0d1020",
+  "theme_color": "#0d1020",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
