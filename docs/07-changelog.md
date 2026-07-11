@@ -2,6 +2,32 @@
 
 Todas as mudanças importantes da Praça Central são registradas neste arquivo.
 
+## [v0.3] — 11/07/2026
+
+### Adicionado
+
+- FlashCore como terceiro destino da Praça Central;
+- categoria **Estudos e revisão**;
+- filtro **Estudos** na galeria;
+- ícone próprio do FlashCore;
+- descrição, tags e lista de recursos no catálogo;
+- testes específicos para o novo destino.
+
+### Ajustado
+
+- grade de aplicações para três colunas em telas amplas;
+- adaptação do card isolado em larguras intermediárias;
+- contadores e textos iniciais para três aplicações;
+- seção de crescimento da Praça;
+- versão da interface, metadados e cache para v0.3.0;
+- documentação geral do projeto.
+
+### Mantido
+
+- experiência PWA consolidada na v0.2;
+- funcionamento offline da interface principal;
+- independência entre os projetos externos.
+
 ## [v0.2] — 10/07/2026
 
 ### Adicionado

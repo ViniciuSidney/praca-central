@@ -51,6 +51,28 @@ const APP_CATALOG = [
       "Foco de hoje e ações rápidas para o dia a dia.",
     ],
   },
+  {
+    id: "flashcore",
+    name: "FlashCore",
+    shortName: "FC",
+    category: APP_CATEGORIES.STUDY,
+    categoryLabel: "Estudos e revisão",
+    description:
+      "Organize baralhos, importe flashcards e conduza revisões em uma aplicação prática, com seus dados armazenados localmente.",
+    version: "v0.1",
+    status: APP_STATUS.AVAILABLE,
+    statusLabel: "Disponível",
+    url: APP_URLS.flashCore,
+    accent: "gold",
+    icon: "./src/assets/icons/flashcore.svg",
+    tags: ["Flashcards", "Baralhos", "Revisão", "Dados locais"],
+    features: [
+      "Criação e organização de baralhos de flashcards.",
+      "Importação de cartões para acelerar a montagem dos conteúdos.",
+      "Visão dos cards aguardando revisão no dia.",
+      "Armazenamento local dos dados da aplicação.",
+    ],
+  },
 ];
 
 export function getAppCatalog() {

@@ -37,7 +37,7 @@
 - **RNF11** — A ausência de suporte a instalação customizada não deve impedir o uso normal do site.
 - **RNF12** — Atualizações não devem substituir silenciosamente uma versão em uso.
 
-## Escopo da v0.2
+## Escopo consolidado até a v0.3
 
 ### Entra nesta versão
 
@@ -53,7 +53,13 @@
 - detecção de nova versão;
 - atualização por confirmação do usuário;
 - limpeza de caches antigos;
-- documentação e testes PWA.
+- documentação e testes PWA;
+- FlashCore como terceiro destino disponível;
+- categoria **Estudos e revisão**;
+- filtro específico para aplicações de estudo;
+- ícone e identidade visual próprios do FlashCore;
+- grade adaptada para três cards em telas amplas;
+- cache PWA atualizado para incluir o novo recurso visual.
 
 ### Fica para versões futuras
 
@@ -68,7 +74,7 @@
 
 ### Fora do escopo
 
-- instalar automaticamente Time Task e Note and Finish;
+- instalar automaticamente as aplicações externas ligadas à Central;
 - armazenar offline conteúdo de outros domínios;
 - login e contas de usuário;
 - banco de dados;

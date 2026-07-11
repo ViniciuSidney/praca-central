@@ -9,7 +9,8 @@
  */
 export const APP_URLS = {
 	timeTask: 'https://viniciusidney.github.io/time-task/',
-	noteAndFinish: 'https://viniciusidney.github.io/note-and-finish/'
+	noteAndFinish: 'https://viniciusidney.github.io/note-and-finish/',
+	flashCore: 'https://viniciusidney.github.io/flashcore/'
 };
 
 export const PROJECT_LINKS = {
@@ -18,6 +19,6 @@ export const PROJECT_LINKS = {
 
 export const APP_META = {
   name: "Praça Central",
-  version: "0.2.0",
+  version: "0.3.0",
   storageNamespace: "praca-central",
 };

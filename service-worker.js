@@ -1,10 +1,10 @@
 // =============================
 // Praça Central — Service Worker
-// Version: v0.2.0
+// Version: v0.3.0
 // =============================
 
 const CACHE_PREFIX = "praca-central";
-const CACHE_VERSION = "v0.2.0";
+const CACHE_VERSION = "v0.3.0";
 const STATIC_CACHE = `${CACHE_PREFIX}-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-${CACHE_VERSION}`;
 
@@ -19,6 +19,7 @@ const APP_SHELL = [
   "./public/icons/icon-maskable-512.png",
   "./src/assets/icons/time-task.svg",
   "./src/assets/icons/note-and-finish.svg",
+  "./src/assets/icons/flashcore.svg",
   "./src/styles/main.css",
   "./src/styles/base/reset.css",
   "./src/styles/base/tokens.css",

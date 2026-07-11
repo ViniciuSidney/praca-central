@@ -3,7 +3,7 @@
 ## Informações
 
 Projeto: Praça Central  
-Versão testada: v0.2  
+Versão testada: v0.3  
 Data inicial: 10/07/2026
 
 ## Testes funcionais existentes
@@ -106,3 +106,15 @@ Data inicial: 10/07/2026
 
 - Google Chrome: instalação e execução PWA aprovadas.
 - Opera GX: navegação normal aprovada; o navegador não disponibilizou instalação da PWA.
+## Testes de regressão da v0.3 — FlashCore
+
+| Código | Teste | Resultado esperado | Status inicial |
+|---|---|---|---|
+| F01 | Carregar a galeria | Três aplicações são exibidas | Pendente |
+| F02 | Pesquisar por “Flash” | Apenas FlashCore permanece visível | Pendente |
+| F03 | Pesquisar por “baralhos” | Apenas FlashCore permanece visível | Pendente |
+| F04 | Filtrar por Estudos | Apenas FlashCore é exibido | Pendente |
+| F05 | Abrir detalhes do FlashCore | Modal mostra dados, tags e recursos corretos | Pendente |
+| F06 | Abrir aplicação | Link abre `https://viniciusidney.github.io/flashcore/` em nova aba | Pendente |
+| F07 | Recarregar offline | Ícone e card do FlashCore continuam disponíveis | Pendente |
+| F08 | Atualizar da v0.2 para v0.3 | Novo worker ativa e remove caches antigos | Pendente |

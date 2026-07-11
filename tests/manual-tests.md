@@ -1,4 +1,4 @@
-# Testes Manuais — Praça Central v0.2
+# Testes Manuais — Praça Central v0.3
 
 ## Preparação
 
@@ -11,9 +11,11 @@
 ## Aplicação base
 
 - [ ] A página carrega corretamente.
-- [ ] Os dois cards aparecem.
-- [ ] O contador mostra 2 destinos.
+- [ ] Os três cards aparecem.
+- [ ] O contador mostra 3 destinos.
 - [ ] Busca e filtros funcionam.
+- [ ] O filtro Estudos exibe apenas o FlashCore.
+- [ ] A busca por “Flash” e “baralhos” encontra o FlashCore.
 - [ ] O estado vazio aparece sem resultados.
 - [ ] O modal mostra os dados corretos.
 - [ ] Os modais fecham por botão, clique externo e Esc.

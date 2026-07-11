@@ -40,12 +40,13 @@ Inicialmente, o próprio criador das aplicações. Futuramente, qualquer pessoa 
 
 ## Versão atual
 
-v0.2 — Praça Instalável
+v0.3 — FlashCore na Praça
 
-## Aplicações iniciais
+## Aplicações disponíveis
 
 - Time Task;
-- Note and Finish.
+- Note and Finish;
+- FlashCore.
 
 ## Observação central
 

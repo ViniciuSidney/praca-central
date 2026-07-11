@@ -5,6 +5,7 @@
 export const APP_CATEGORIES = {
   FOCUS: "foco",
   ORGANIZATION: "organizacao",
+  STUDY: "estudos",
 };
 
 export const APP_STATUS = {

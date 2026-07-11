@@ -45,7 +45,12 @@ export function renderApps(apps) {
   }
 
   const fragment = document.createDocumentFragment();
-  apps.forEach((app) => fragment.appendChild(createAppCard(app)));
+
+  apps.forEach((app, index) => {
+    const isLastOddCard = apps.length % 2 === 1 && index === apps.length - 1;
+    fragment.appendChild(createAppCard(app, { spanFullAtMedium: isLastOddCard }));
+  });
+
   elements.appsGrid.appendChild(fragment);
 }
 
@@ -114,11 +119,12 @@ export function closeAppDetails() {
   document.body.classList.remove("has-open-modal");
 }
 
-function createAppCard(app) {
+function createAppCard(app, { spanFullAtMedium = false } = {}) {
   const linkConfigured = canOpenApp(app);
   const card = document.createElement("article");
 
   card.className = `central-app-card central-app-card--${app.accent}`;
+  card.classList.toggle("central-app-card--span-full", spanFullAtMedium);
   card.dataset.appId = app.id;
 
   const actionMarkup = linkConfigured

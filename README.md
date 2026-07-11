@@ -6,14 +6,15 @@ A **Praça Central** funciona como uma porta de entrada para o ecossistema de ap
 
 ## Versão atual
 
-**v0.2 — Praça Instalável**
+**v0.3 — FlashCore na Praça**
 
-A versão atual transforma a Central em uma **Progressive Web App (PWA)**. Ela pode ser instalada em navegadores compatíveis, abre em uma janela própria e mantém sua interface principal disponível mesmo sem conexão.
+A versão atual mantém a experiência PWA consolidada e amplia a Praça com o **FlashCore**, o terceiro destino disponível. A Central continua instalável, responsiva e acessível offline em sua interface principal.
 
 As aplicações apresentadas são:
 
 - **Time Task** — foco imediato com timer, missão e microtarefas;
-- **Note and Finish** — organização de atividades, prazos e etapas.
+- **Note and Finish** — organização de atividades, prazos e etapas;
+- **FlashCore** — criação, importação e revisão de flashcards.
 
 ## Funcionalidades
 
@@ -38,7 +39,7 @@ As aplicações apresentadas são:
 
 O modo offline mantém a **Praça Central** acessível, incluindo sua interface, os cards e as informações das aplicações.
 
-Os links para Time Task e Note and Finish apontam para projetos externos. Abrir esses destinos sem internet depende de cada aplicação possuir sua própria estratégia PWA e cache offline.
+Os links para Time Task, Note and Finish e FlashCore apontam para projetos externos. Abrir esses destinos sem internet depende de cada aplicação possuir sua própria estratégia PWA e cache offline.
 
 ## Configuração dos links
 
@@ -52,6 +53,7 @@ src/scripts/core/config.js
 export const APP_URLS = {
   timeTask: "https://...",
   noteAndFinish: "https://...",
+  flashCore: "https://...",
 };
 ```
 
@@ -80,7 +82,7 @@ A feature PWA segue a separação do projeto:
 O cache é versionado em `service-worker.js`. Em alterações relevantes, atualize:
 
 ```js
-const CACHE_VERSION = "v0.2.0";
+const CACHE_VERSION = "v0.3.0";
 ```
 
 ## Tecnologias

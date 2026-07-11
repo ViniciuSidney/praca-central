@@ -43,9 +43,9 @@
             </svg>
           </span>
 
-          <span>
-            <strong>Praça Central</strong>
-            <small>Central de aplicações</small>
+          <span class="central-brand__text">
+            <strong class="central-brand__title">Praça Central</strong>
+            <small class="central-brand__subtitle">Central de aplicações</small>
           </span>
         </a>
 
@@ -115,36 +115,6 @@
               </button>
             </div>
           </div>
-
-          <aside class="central-map-card" aria-label="Resumo da central">
-            <div class="central-map-card__glow" aria-hidden="true"></div>
-
-            <div class="central-map-card__top">
-              <div class="central-map-card__badges">
-                <span class="badge badge-success badge-dot">Central ativa</span>
-                <span class="badge badge-primary" id="pwaInstalledBadge" hidden>Instalada</span>
-              </div>
-              <span class="central-map-card__version">v0.2</span>
-            </div>
-
-            <div class="central-map-card__symbol" aria-hidden="true">
-              <span class="central-map-card__orbit central-map-card__orbit--one"></span>
-              <span class="central-map-card__orbit central-map-card__orbit--two"></span>
-              <span class="central-map-card__core">PC</span>
-            </div>
-
-            <div class="central-map-card__stats">
-              <div>
-                <strong id="totalAppsCounter">2</strong>
-                <span>destinos</span>
-              </div>
-
-              <div>
-                <strong id="availableAppsCounter">2</strong>
-                <span>disponíveis</span>
-              </div>
-            </div>
-          </aside>
         </section>
 
         <section class="central-section central-section--apps" id="aplicacoes">
@@ -157,7 +127,7 @@
               </p>
             </div>
 
-            <span class="badge badge-primary" id="visibleAppsBadge">2 aplicações</span>
+            <span class="badge badge-primary" id="visibleAppsBadge">3 aplicações</span>
           </header>
 
           <div class="central-toolbar">
@@ -182,6 +152,9 @@
               </button>
               <button class="btn btn-outline btn-sm" type="button" data-app-filter="organizacao">
                 Organização
+              </button>
+              <button class="btn btn-outline btn-sm" type="button" data-app-filter="estudos">
+                Estudos
               </button>
             </div>
           </div>
@@ -215,7 +188,7 @@
 
             <div class="central-future-card__aside">
               <span>Próximo passo</span>
-              <strong>Adicionar a terceira aplicação</strong>
+              <strong>Integrar novos destinos</strong>
             </div>
           </article>
         </section>
@@ -228,7 +201,7 @@
         </div>
 
         <div class="central-footer__meta">
-          <span>v0.2 — Praça Instalável</span>
+          <span>v0.3 — FlashCore na Praça</span>
           <span>© <span id="currentYear"></span> Vinícius Sidney</span>
         </div>
       </footer>

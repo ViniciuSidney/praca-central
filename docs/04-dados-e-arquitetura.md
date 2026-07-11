@@ -44,8 +44,8 @@ praca-central:theme
 Os arquivos offline são armazenados pelo navegador no **Cache Storage**, separados em:
 
 ```text
-praca-central-static-v0.2.0
-praca-central-runtime-v0.2.0
+praca-central-static-v0.3.0
+praca-central-runtime-v0.3.0
 ```
 
 ## Arquitetura JavaScript
@@ -134,3 +134,7 @@ Os estilos específicos permanecem em:
 ```text
 src/styles/pages/home.css
 ```
+
+## Novo destino na v0.3
+
+O FlashCore foi adicionado ao catálogo em `apps.model.js`, com seu endereço centralizado em `core/config.js`. O ícone `flashcore.svg` integra o shell offline e a categoria `estudos` foi incluída em `core/constants.js`.

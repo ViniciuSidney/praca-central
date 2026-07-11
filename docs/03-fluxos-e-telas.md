@@ -91,3 +91,7 @@ Apresentar o ecossistema de aplicações, permitir descoberta por busca e filtro
 6. O novo worker assume o controle.
 7. A página recarrega uma única vez.
 8. Caches antigos são removidos.
+
+## Atualização da galeria na v0.3
+
+A galeria passa a apresentar três destinos: Time Task, Note and Finish e FlashCore. O filtro **Estudos** exibe exclusivamente o FlashCore, enquanto a busca também encontra a aplicação pelos termos “flashcards”, “baralhos” e “revisão”.

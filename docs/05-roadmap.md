@@ -2,14 +2,27 @@
 
 ## Versão atual
 
-### v0.2 — Praça Instalável
+### v0.3 — FlashCore na Praça
 
-Status: pronta para testes locais e publicação no GitHub Pages.
+Status: pronta para testes e publicação.
 
 Objetivo:
-Transformar a Praça Central em uma PWA instalável, resiliente a falhas de conexão e capaz de comunicar atualizações de forma controlada.
+Ampliar o ecossistema da Praça Central com o FlashCore, criando uma categoria própria para estudos e adaptando a galeria para três destinos.
 
 Funcionalidades:
+
+- FlashCore como terceiro destino;
+- categoria e filtro **Estudos**;
+- ícone e identidade visual em dourado;
+- busca por flashcards, baralhos e revisão;
+- grade com três cards em telas amplas;
+- adaptação do card isolado em larguras intermediárias;
+- cache PWA atualizado para a v0.3.0;
+- documentação e testes de regressão.
+
+## Versões consolidadas
+
+### v0.2 — Praça Instalável
 
 - manifesto completo;
 - ícones PWA e Apple Touch;
@@ -23,8 +36,6 @@ Funcionalidades:
 - atualização sob confirmação;
 - limpeza de caches antigos;
 - documentação e testes PWA.
-
-## Versões consolidadas
 
 ### v0.1 — Fundação da Praça
 
@@ -41,7 +52,7 @@ Funcionalidades:
 
 ## Próximas versões
 
-### v0.3 — Vitrine mais visual
+### v0.4 — Vitrine mais visual
 
 Possibilidades:
 
@@ -51,7 +62,7 @@ Possibilidades:
 - links para repositórios;
 - informações de compatibilidade PWA de cada destino.
 
-### v0.4 — Organização do ecossistema
+### v0.5 — Organização do ecossistema
 
 Possibilidades:
 
