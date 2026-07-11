@@ -65,4 +65,4 @@
 
 Data: ____/____/______  
 Responsável: ____________________  
-Status: [X] Aprovado [ ] Reprovado [ ] Aprovado com ajustes
+Status: [ ] Aprovado [ ] Reprovado [ ] Aprovado com ajustes

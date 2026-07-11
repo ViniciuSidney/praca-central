@@ -15,6 +15,16 @@
 
     <title>Praça Central | Central de Aplicações</title>
 
+    <script>
+      // Captura o evento de instalação o mais cedo possível.
+      window.__pwaInstallPrompt = null;
+      window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        window.__pwaInstallPrompt = event;
+        window.dispatchEvent(new CustomEvent("pwa:install-prompt-captured"));
+      });
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
     <link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.png" />
     <link rel="manifest" href="./public/manifest.json" />
@@ -49,10 +59,12 @@
             class="btn btn-success btn-sm central-install-button"
             type="button"
             data-pwa-install
+            data-native-label="Instalar"
+            data-manual-label="Como instalar"
             hidden
           >
-            <span aria-hidden="true">⇩</span>
-            <span class="central-header-action__label">Instalar</span>
+            <span data-pwa-install-icon aria-hidden="true">⇩</span>
+            <span class="central-header-action__label" data-pwa-install-label>Instalar</span>
           </button>
 
           <button
@@ -86,9 +98,16 @@
                 <span aria-hidden="true">↓</span>
               </a>
 
-              <button class="btn btn-success btn-lg" type="button" data-pwa-install hidden>
-                Instalar Praça Central
-                <span aria-hidden="true">⇩</span>
+              <button
+                class="btn btn-success btn-lg"
+                type="button"
+                data-pwa-install
+                data-native-label="Instalar Praça Central"
+                data-manual-label="Como instalar"
+                hidden
+              >
+                <span data-pwa-install-label>Instalar Praça Central</span>
+                <span data-pwa-install-icon aria-hidden="true">⇩</span>
               </button>
 
               <button class="btn btn-outline btn-lg" id="openAboutButton" type="button">
@@ -310,6 +329,53 @@
       </section>
     </div>
 
+
+    <div class="modal-overlay" id="pwaInstallHelpModal" hidden>
+      <section
+        class="modal modal-lg modal-accent"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="pwaInstallHelpTitle"
+      >
+        <header class="modal-header">
+          <div>
+            <h2 class="modal-title" id="pwaInstallHelpTitle">Instalar a Praça Central</h2>
+            <p class="panel-description">O método de instalação depende do navegador e do sistema.</p>
+          </div>
+
+          <button class="modal-close" id="closePwaInstallHelpButton" type="button" aria-label="Fechar orientações">
+            ×
+          </button>
+        </header>
+
+        <div class="modal-body central-install-help">
+          <ol class="central-install-steps">
+            <li>Abra o menu principal do navegador.</li>
+            <li>Procure por <strong>Instalar aplicativo</strong>, <strong>Instalar página como app</strong>, <strong>Apps</strong> ou <strong>Adicionar à tela inicial</strong>.</li>
+            <li>Confirme a instalação e abra a Praça Central pela área de aplicativos do sistema.</li>
+          </ol>
+
+          <div class="alert alert-info">
+            <div>
+              <h3 class="alert-title">Para testar o botão nativo</h3>
+              <p class="alert-text">
+                Use Chrome ou Edge, interaja ao menos uma vez com a página e mantenha-a aberta por cerca de 30 segundos.
+                Quando o navegador liberar o prompt, este botão muda automaticamente para “Instalar”.
+              </p>
+            </div>
+          </div>
+
+          <p class="text-muted">
+            O evento usado pelo botão nativo não é padronizado e pode não ser oferecido por todos os navegadores,
+            mesmo quando a aplicação já possui manifesto e service worker válidos.
+          </p>
+        </div>
+
+        <footer class="modal-actions">
+          <button class="btn btn-primary" id="confirmPwaInstallHelpButton" type="button">Entendi</button>
+        </footer>
+      </section>
+    </div>
 
     <div class="central-pwa-stack" aria-live="polite" aria-atomic="true">
       <section class="central-pwa-banner central-pwa-banner--offline" id="pwaOfflineBanner" role="status" hidden>

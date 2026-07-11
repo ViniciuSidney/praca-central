@@ -2,29 +2,48 @@
 // Feature: PWA / Service
 // =============================
 
-let deferredInstallPrompt = null;
+let deferredInstallPrompt = window.__pwaInstallPrompt ?? null;
 let serviceWorkerRegistration = null;
 let reloadOnControllerChange = false;
+let lastKnownOnlineState = navigator.onLine;
 
-const installAvailabilityListeners = new Set();
+const installModeListeners = new Set();
 const updateAvailabilityListeners = new Set();
 const connectionListeners = new Set();
 const installationStateListeners = new Set();
 
+export const INSTALL_MODE = {
+  INSTALLED: "installed",
+  NATIVE: "native",
+  MANUAL: "manual",
+};
+
+window.addEventListener("pwa:install-prompt-captured", () => {
+  deferredInstallPrompt = window.__pwaInstallPrompt;
+  notifyInstallMode();
+});
+
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
   deferredInstallPrompt = event;
-  notifyInstallAvailability();
+  window.__pwaInstallPrompt = event;
+  notifyInstallMode();
 });
 
 window.addEventListener("appinstalled", () => {
   deferredInstallPrompt = null;
-  notifyInstallAvailability();
+  window.__pwaInstallPrompt = null;
+  notifyInstallMode();
   notifyInstallationState(true);
 });
 
-window.addEventListener("online", notifyConnectionState);
-window.addEventListener("offline", notifyConnectionState);
+window.addEventListener("online", () => {
+  refreshConnectionState().catch(() => notifyConnectionState(false));
+});
+
+window.addEventListener("offline", () => {
+  notifyConnectionState(false);
+});
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.addEventListener("controllerchange", () => {
@@ -52,8 +71,16 @@ export function canPromptInstall() {
   return Boolean(deferredInstallPrompt) && !isInstalled();
 }
 
+export function getInstallMode() {
+  if (isInstalled()) {
+    return INSTALL_MODE.INSTALLED;
+  }
+
+  return canPromptInstall() ? INSTALL_MODE.NATIVE : INSTALL_MODE.MANUAL;
+}
+
 export function isOnline() {
-  return navigator.onLine;
+  return lastKnownOnlineState;
 }
 
 export async function registerServiceWorker() {
@@ -77,12 +104,23 @@ export async function requestInstall() {
 
   const promptEvent = deferredInstallPrompt;
   deferredInstallPrompt = null;
-  notifyInstallAvailability();
+  window.__pwaInstallPrompt = null;
+  notifyInstallMode();
 
   await promptEvent.prompt();
   const choice = await promptEvent.userChoice;
 
+  if (choice.outcome !== "accepted") {
+    notifyInstallMode();
+  }
+
   return choice;
+}
+
+export async function refreshConnectionState() {
+  const online = await detectNetworkConnection();
+  notifyConnectionState(online);
+  return online;
 }
 
 export function applyWaitingUpdate() {
@@ -101,11 +139,11 @@ export function checkForUpdates() {
   return serviceWorkerRegistration?.update() ?? Promise.resolve();
 }
 
-export function onInstallAvailabilityChange(listener) {
-  installAvailabilityListeners.add(listener);
-  listener(canPromptInstall());
+export function onInstallModeChange(listener) {
+  installModeListeners.add(listener);
+  listener(getInstallMode());
 
-  return () => installAvailabilityListeners.delete(listener);
+  return () => installModeListeners.delete(listener);
 }
 
 export function onUpdateAvailable(listener) {
@@ -130,6 +168,26 @@ export function onInstallationStateChange(listener) {
   listener(isInstalled());
 
   return () => installationStateListeners.delete(listener);
+}
+
+async function detectNetworkConnection() {
+  if (!navigator.onLine) {
+    return false;
+  }
+
+  const probeUrl = new URL("../../../../public/manifest.json", import.meta.url);
+  probeUrl.searchParams.set("__network_check", Date.now().toString());
+
+  try {
+    const response = await fetch(probeUrl, {
+      cache: "no-store",
+      credentials: "same-origin",
+    });
+
+    return response.ok;
+  } catch {
+    return false;
+  }
 }
 
 function observeRegistration(registration) {
@@ -159,6 +217,7 @@ function scheduleUpdateChecks(registration) {
   const updateWhenVisible = () => {
     if (document.visibilityState === "visible") {
       registration.update().catch(() => {});
+      refreshConnectionState().catch(() => notifyConnectionState(false));
     }
   };
 
@@ -170,17 +229,17 @@ function scheduleUpdateChecks(registration) {
   }, 60 * 60 * 1000);
 }
 
-function notifyInstallAvailability() {
-  const available = canPromptInstall();
-  installAvailabilityListeners.forEach((listener) => listener(available));
+function notifyInstallMode() {
+  const mode = getInstallMode();
+  installModeListeners.forEach((listener) => listener(mode));
 }
 
 function notifyUpdateAvailability(available) {
   updateAvailabilityListeners.forEach((listener) => listener(available));
 }
 
-function notifyConnectionState() {
-  const online = isOnline();
+function notifyConnectionState(online) {
+  lastKnownOnlineState = online;
   connectionListeners.forEach((listener) => listener(online));
 }
 

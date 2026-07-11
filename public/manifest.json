@@ -2,6 +2,7 @@
   "name": "Praça Central",
   "short_name": "Praça Central",
   "description": "Uma praça digital instalável para acessar aplicações web úteis em um só lugar.",
+  "id": "../",
   "lang": "pt-BR",
   "dir": "ltr",
   "start_url": "../",

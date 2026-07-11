@@ -113,6 +113,11 @@ self.addEventListener("fetch", (event) => {
 
   const requestUrl = new URL(request.url);
 
+  if (requestUrl.searchParams.has("__network_check")) {
+    event.respondWith(fetch(request));
+    return;
+  }
+
   if (requestUrl.origin !== self.location.origin) {
     return;
   }

@@ -1113,3 +1113,26 @@ body.has-open-modal {
     flex: 1;
   }
 }
+
+
+/* ============================= */
+/* PWA: orientação de instalação */
+/* ============================= */
+
+.central-install-help {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.central-install-steps {
+  display: grid;
+  gap: var(--space-sm);
+  padding-left: 1.3rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.central-install-steps strong {
+  color: var(--color-text);
+}

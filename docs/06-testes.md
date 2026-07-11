@@ -79,3 +79,30 @@ Data inicial: 10/07/2026
 - modais fechando com Esc;
 - contraste em temas claro e escuro;
 - respeito a `prefers-reduced-motion`.
+
+
+## Ajuste de compatibilidade do prompt de instalação
+
+- O botão deve aparecer como **Instalar** quando `beforeinstallprompt` estiver disponível.
+- Caso o navegador não ofereça esse evento, o botão deve aparecer como **Como instalar** e abrir orientações manuais.
+- Para testar o prompt nativo no Chrome ou Edge, interaja com a página e aguarde cerca de 30 segundos antes de recarregar.
+- Ao recarregar em modo offline pelo DevTools, o banner deve reaparecer após a verificação de conectividade.
+
+
+## Resultado dos testes da v0.2
+
+- Manifesto PWA: aprovado
+- Registro do service worker: aprovado
+- Cache estático: aprovado
+- Carregamento offline: aprovado
+- Instalação no Google Chrome: aprovada
+- Execução em modo standalone: aprovada
+- Atualização da PWA: aprovada
+- Limpeza de caches antigos: aprovada
+- Tema e preferências: aprovados
+- Responsividade: aprovada
+
+### Compatibilidade observada
+
+- Google Chrome: instalação e execução PWA aprovadas.
+- Opera GX: navegação normal aprovada; o navegador não disponibilizou instalação da PWA.

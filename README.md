@@ -142,6 +142,14 @@ A aplicação deve ser aberta por um servidor local. O service worker não funci
 
 O botão customizado depende do evento `beforeinstallprompt`, que não é oferecido por todos os navegadores. A ausência do botão não impede que o navegador disponibilize instalação por seu próprio menu.
 
+## Instalação como PWA
+
+A Praça Central pode ser instalada como aplicação em navegadores compatíveis, como o Google Chrome.
+
+Depois de abrir a página publicada, utilize a opção de instalação exibida pelo navegador ou pela própria interface da Central.
+
+A interface principal pode ser carregada offline. A abertura de aplicações externas depende de conexão ou do suporte offline de cada aplicação.
+
 ## Publicação no GitHub Pages
 
 O service worker fica na raiz para controlar todo o escopo da aplicação. O manifesto usa caminhos relativos compatíveis com projetos publicados em subpastas do GitHub Pages.

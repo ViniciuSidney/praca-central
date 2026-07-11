@@ -6,23 +6,27 @@ Todas as mudanças importantes da Praça Central são registradas neste arquivo.
 
 ### Adicionado
 
-- transformação da Praça Central em Progressive Web App;
-- manifesto completo com escopo adequado ao GitHub Pages;
-- ícones de 192 px, 512 px, Apple Touch e maskable;
-- service worker na raiz do projeto;
-- cache estático do shell principal;
-- cache de execução para recursos locais;
-- funcionamento offline da interface da Central;
-- botões de instalação progressivos no cabeçalho e no hero;
-- detecção do modo instalado;
-- badge visual para aplicação instalada;
-- aviso de conexão offline;
-- aviso de nova versão disponível;
-- atualização por confirmação do usuário;
-- limpeza automática de caches antigos;
-- atalho de instalação para a seção de aplicações;
-- feature PWA separada em service, UI e controller;
-- testes específicos de instalação, cache, offline e atualização.
+- Manifesto completo da aplicação.
+- Service worker com cache estático e dinâmico.
+- Funcionamento offline da Praça Central.
+- Instalação como aplicação em navegadores compatíveis.
+- Ícones próprios para instalação.
+- Botão e fluxo de instalação.
+- Aviso de estado offline.
+- Detecção e aplicação de novas versões.
+- Limpeza automática de caches antigos.
+- Feature PWA separada em service, UI e controller.
+
+### Ajustado
+
+- Persistência e sincronização do tema com a cor do navegador.
+- Documentação e testes da aplicação.
+- Experiência da Central em modo standalone.
+
+### Observações
+
+- A instalação foi validada no Google Chrome.
+- O Opera GX foi mantido como navegador compatível para acesso web, mas não ofereceu instalação da PWA.
 
 ### Alterado
 
@@ -59,3 +63,12 @@ Todas as mudanças importantes da Praça Central são registradas neste arquivo.
 - favicon e manifesto inicial;
 - documentação inicial;
 - testes manuais planejados.
+
+
+### Correções de teste da PWA
+
+- adicionado fallback de instalação manual para navegadores sem `beforeinstallprompt`;
+- captura antecipada do evento de instalação;
+- verificação real de conectividade após recarregamento;
+- correção do banner offline em recargas com a rede indisponível;
+- identidade estável adicionada ao manifesto por meio do campo `id`.

@@ -3,10 +3,14 @@
 // =============================
 
 import { $, $$, hideElement, showElement, toggleElement } from "../../shared/dom.js";
+import { INSTALL_MODE } from "./pwa.service.js";
 
 const elements = {
   installButtons: $$('[data-pwa-install]'),
   installedBadge: $("#pwaInstalledBadge"),
+  installHelpModal: $("#pwaInstallHelpModal"),
+  closeInstallHelpButton: $("#closePwaInstallHelpButton"),
+  confirmInstallHelpButton: $("#confirmPwaInstallHelpButton"),
   offlineBanner: $("#pwaOfflineBanner"),
   updateBanner: $("#pwaUpdateBanner"),
   updateButton: $("#pwaUpdateButton"),
@@ -17,10 +21,27 @@ export function getPwaUIElements() {
   return elements;
 }
 
-export function setInstallAvailability(available) {
+export function setInstallMode(mode) {
+  const installed = mode === INSTALL_MODE.INSTALLED;
+  const nativePrompt = mode === INSTALL_MODE.NATIVE;
+
   elements.installButtons.forEach((button) => {
-    toggleElement(button, available);
-    button.disabled = !available;
+    toggleElement(button, !installed);
+    button.disabled = installed;
+    button.dataset.installMode = mode;
+
+    const label = button.querySelector("[data-pwa-install-label]");
+    const icon = button.querySelector("[data-pwa-install-icon]");
+
+    if (label) {
+      label.textContent = nativePrompt
+        ? button.dataset.nativeLabel || "Instalar"
+        : button.dataset.manualLabel || "Como instalar";
+    }
+
+    if (icon) {
+      icon.textContent = nativePrompt ? "⇩" : "?";
+    }
   });
 }
 
@@ -36,8 +57,19 @@ export function setInstalledState(installed) {
   toggleElement(elements.installedBadge, installed);
 
   if (installed) {
-    setInstallAvailability(false);
+    setInstallMode(INSTALL_MODE.INSTALLED);
   }
+}
+
+export function openInstallHelp() {
+  showElement(elements.installHelpModal);
+  document.body.classList.add("has-open-modal");
+  elements.closeInstallHelpButton?.focus();
+}
+
+export function closeInstallHelp() {
+  hideElement(elements.installHelpModal);
+  document.body.classList.remove("has-open-modal");
 }
 
 export function setConnectionState(online) {
