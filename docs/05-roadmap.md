@@ -2,96 +2,47 @@
 
 ## Versão atual
 
-### v0.3 — FlashCore na Praça
+### v0.1 - [Nome da versão]
 
-Status: pronta para testes e publicação.
+Status: Em desenvolvimento
 
 Objetivo:
-Ampliar o ecossistema da Praça Central com o FlashCore, criando uma categoria própria para estudos e adaptando a galeria para três destinos.
+[Objetivo principal da versão.]
 
 Funcionalidades:
+- [Funcionalidade]
+- [Funcionalidade]
+- [Funcionalidade]
 
-- FlashCore como terceiro destino;
-- categoria e filtro **Estudos**;
-- ícone e identidade visual em dourado;
-- busca por flashcards, baralhos e revisão;
-- grade com três cards em telas amplas;
-- adaptação do card isolado em larguras intermediárias;
-- cache PWA atualizado para a v0.3.0;
-- documentação e testes de regressão.
-
-## Versões consolidadas
-
-### v0.2 — Praça Instalável
-
-- manifesto completo;
-- ícones PWA e Apple Touch;
-- service worker na raiz;
-- cache do shell principal;
-- interface disponível offline;
-- botão de instalação progressivo;
-- detecção de modo instalado;
-- aviso offline;
-- aviso de nova versão;
-- atualização sob confirmação;
-- limpeza de caches antigos;
-- documentação e testes PWA.
-
-### v0.1 — Fundação da Praça
-
-- identidade visual própria;
-- Hub Inicial;
-- Time Task e Note and Finish;
-- busca e filtros;
-- modal de detalhes;
-- tema claro e escuro;
-- responsividade;
-- estado vazio;
-- links centralizados;
-- documentação inicial.
+---
 
 ## Próximas versões
 
-### v0.4 — Vitrine mais visual
+### v0.2 - [Nome da próxima versão]
 
-Possibilidades:
+Objetivo:
+[O que será melhorado ou adicionado.]
 
-- capturas de tela reais;
-- imagem de capa por aplicação;
-- indicação de atualização recente;
-- links para repositórios;
-- informações de compatibilidade PWA de cada destino.
+Funcionalidades planejadas:
+- [Funcionalidade]
+- [Funcionalidade]
 
-### v0.5 — Organização do ecossistema
+---
 
-Possibilidades:
+### v1.0 - Primeira versão estável
 
-- mais categorias;
-- ordenação;
-- aplicações em desenvolvimento;
-- favoritos locais;
-- histórico local de acessos;
-- seção de novidades.
+Objetivo:
+[Quando o projeto será considerado minimamente completo.]
 
-### v1.0 — Central estável
+Critérios para fechar a versão:
+- [Critério]
+- [Critério]
+- [Critério]
 
-Critérios:
-
-- aplicações principais cadastradas;
-- links validados;
-- instalação testada em ambientes compatíveis;
-- experiência offline validada;
-- interface desktop e mobile estável;
-- acessibilidade básica verificada;
-- documentação atualizada;
-- testes manuais concluídos.
+---
 
 ## Ideias futuras
 
-- capturas de tela no manifesto para instalação enriquecida;
-- instruções específicas para instalação no iOS;
-- atalho instalado para seções adicionais;
-- compartilhamento da Central;
-- personalização da ordem dos cards;
-- atalhos por teclado;
-- atualização automática de metadados.
+- [Ideia futura]
+- [Ideia futura]
+- [Ideia futura]

@@ -1,24 +1,13 @@
 [data-theme="light"] {
-  --color-bg: #f5f2ec;
-  --color-surface: #fffdf9;
-  --color-surface-soft: #ede8df;
-  --color-surface-strong: #e4ded4;
+  --color-bg: #f3f4f6;
+  --color-surface: #ffffff;
+  --color-surface-soft: #e5e7eb;
+  --color-surface-strong: #d1d5db;
 
-  --color-text: #211f2c;
-  --color-text-muted: #5d5a6d;
-  --color-text-soft: #7d798c;
-  --color-text-inverse: #21180a;
+  --color-text: #111827;
+  --color-text-muted: #4b5563;
+  --color-text-soft: #6b7280;
 
-  --color-border: rgba(49, 42, 73, 0.12);
-  --color-border-strong: rgba(49, 42, 73, 0.24);
-
-  --central-header-bg: rgba(245, 242, 236, 0.86);
-  --central-hero-surface: rgba(255, 253, 249, 0.8);
-  --central-card-surface: rgba(255, 253, 249, 0.96);
-  --central-grid-line: rgba(101, 89, 199, 0.065);
-
-  --shadow-sm: 0 3px 12px rgba(61, 52, 88, 0.08);
-  --shadow-md: 0 10px 28px rgba(61, 52, 88, 0.11);
-  --shadow-lg: 0 18px 44px rgba(61, 52, 88, 0.14);
-  --shadow-xl: 0 24px 64px rgba(61, 52, 88, 0.18);
+  --color-border: rgba(0, 0, 0, 0.12);
+  --color-border-strong: rgba(0, 0, 0, 0.24);
 }

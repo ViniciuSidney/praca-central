@@ -1,32 +1,29 @@
 :root {
-  --app-name: "Praça Central";
+  /* Identidade da aplicação */
+  --app-name: "Nome da Aplicação";
 
-  --color-primary: #f2b84b;
-  --color-primary-soft: rgba(242, 184, 75, 0.18);
-  --color-primary-hover: #ffc965;
-  --color-primary-active: #d89b30;
+  /* Cores principais da aplicação */
+  --color-bg: #1d2724;
+  --color-surface: #063b34;
+  --color-surface-soft: #2f8f86;
+  --color-surface-strong: #031f1b;
 
-  --color-secondary: #7367d8;
-  --color-secondary-hover: #6559c7;
+  --color-primary: #55c7b8;
+  --color-primary-hover: #46b3a5;
+  --color-primary-active: #399c91;
 
-  --color-success: #45c996;
-  --color-success-soft: rgba(69, 201, 150, 0.16);
-  --color-warning: #f2b84b;
-  --color-warning-soft: rgba(242, 184, 75, 0.17);
-  --color-danger: #ef6f78;
-  --color-danger-soft: rgba(239, 111, 120, 0.16);
-  --color-info: #61aef4;
+  --color-border: rgba(255, 255, 255, 0.14);
+  --color-border-strong: rgba(255, 255, 255, 0.26);
 
-  --central-violet: #8d7df0;
-  --central-violet-soft: rgba(141, 125, 240, 0.18);
-  --central-teal: #52d2c2;
-  --central-teal-soft: rgba(82, 210, 194, 0.18);
-  --central-gold: #f2b84b;
-  --central-gold-soft: rgba(242, 184, 75, 0.18);
+  --color-text: #ffffff;
+  --color-text-muted: #d8f5f1;
+  --color-text-soft: #a7d8d2;
 
-  --app-header-radius: var(--radius-xl);
-  --app-panel-radius: var(--radius-xl);
-  --app-card-radius: var(--radius-xl);
-  --app-title-letter-spacing: -0.03em;
-  --app-shadow-intensity: var(--shadow-lg);
+  /* Personalidade visual */
+  --app-header-radius: var(--radius-md);
+  --app-panel-radius: var(--radius-md);
+  --app-card-radius: var(--radius-sm);
+
+  --app-title-letter-spacing: 0.25rem;
+  --app-shadow-intensity: var(--shadow-md);
 }

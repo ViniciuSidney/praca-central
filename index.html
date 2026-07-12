@@ -1,377 +1,223 @@
 <!doctype html>
 <html lang="pt-BR" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" id="themeColorMeta" content="#0d1020" />
-    <meta name="application-name" content="Praça Central" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Praça Central" />
-    <meta
-      name="description"
-      content="Praça Central: uma central pessoal para acessar aplicações web úteis em um só lugar."
-    />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Praça Central | Central de Aplicações</title>
+		<title>Modelo de Projeto | Aplicação Exemplo</title>
 
-    <script>
-      // Captura o evento de instalação o mais cedo possível.
-      window.__pwaInstallPrompt = null;
-      window.addEventListener("beforeinstallprompt", (event) => {
-        event.preventDefault();
-        window.__pwaInstallPrompt = event;
-        window.dispatchEvent(new CustomEvent("pwa:install-prompt-captured"));
-      });
-    </script>
+		<link rel="stylesheet" href="./src/styles/main.css" />
+	</head>
 
-    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
-    <link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.png" />
-    <link rel="manifest" href="./public/manifest.json" />
-    <link rel="stylesheet" href="./src/styles/main.css" />
-  </head>
+	<body>
+		<main id="app" class="layout-gallery">
+			<header class="gallery-header">
+				<div class="gallery-title-group">
+					<span class="badge badge-primary"> Aplicação exemplo </span>
 
-  <body>
-    <div id="app" class="central-app">
-      <header class="central-header">
-        <a class="central-brand" href="#inicio" aria-label="Voltar ao início da Praça Central">
-          <span class="central-brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 48 48" role="img">
-              <circle cx="24" cy="24" r="18"></circle>
-              <path d="M24 10v28M10 24h28"></path>
-              <circle cx="24" cy="24" r="5"></circle>
-            </svg>
-          </span>
+					<h1 class="gallery-title">Gerenciador de Itens</h1>
 
-          <span class="central-brand__text">
-            <strong class="central-brand__title">Praça Central</strong>
-            <small class="central-brand__subtitle">Central de aplicações</small>
-          </span>
-        </a>
+					<p class="gallery-description">
+						Esta é uma mini aplicação funcional para demonstrar como usar o modelo de projeto com HTML real, CSS reutilizável, componentes base, layouts e JavaScript organizado por feature.
+					</p>
+				</div>
 
-        <nav class="central-header__nav" aria-label="Navegação principal">
-          <a href="#aplicacoes">Aplicações</a>
-          <a href="#sobre">Sobre</a>
-        </nav>
+				<div class="gallery-actions">
+					<a class="btn btn-secondary" href="./layout-preview.html"> Ver biblioteca visual </a>
 
-        <div class="central-header__actions">
-          <button
-            class="btn btn-success btn-sm central-install-button"
-            type="button"
-            data-pwa-install
-            data-native-label="Instalar"
-            data-manual-label="Como instalar"
-            hidden
-          >
-            <span data-pwa-install-icon aria-hidden="true">⇩</span>
-            <span class="central-header-action__label" data-pwa-install-label>Instalar</span>
-          </button>
+					<button class="btn btn-primary" type="button" id="openCreateItemModalButton">Novo item</button>
+				</div>
+			</header>
 
-          <button
-            class="btn btn-secondary btn-sm central-theme-button"
-            id="themeToggleButton"
-            type="button"
-            aria-label="Alternar tema"
-            aria-pressed="false"
-          >
-            <span aria-hidden="true" id="themeToggleIcon">☀</span>
-            <span class="central-header-action__label" id="themeToggleLabel">Tema claro</span>
-          </button>
-        </div>
-      </header>
+			<section class="dashboard-indicators" aria-label="Resumo dos itens">
+				<article class="dashboard-indicator">
+					<span class="dashboard-indicator-label"> Total </span>
 
-      <main>
-        <section class="central-hero" id="inicio">
-          <div class="central-hero__content">
-            <span class="central-eyebrow">Seu ecossistema pessoal</span>
+					<strong class="dashboard-indicator-value" id="totalItemsCounter"> 0 </strong>
 
-            <h1>Seus caminhos digitais começam aqui.</h1>
+					<span class="dashboard-indicator-note"> Itens cadastrados </span>
+				</article>
 
-            <p>
-              Uma praça central para reunir ferramentas que já fazem parte do seu dia a dia.
-              Escolha um destino, abra a aplicação e siga com o que precisa ser feito.
-            </p>
+				<article class="dashboard-indicator">
+					<span class="dashboard-indicator-label"> Ativos </span>
 
-            <div class="central-hero__actions">
-              <a class="btn btn-primary btn-lg" href="#aplicacoes">
-                Explorar aplicações
-                <span aria-hidden="true">↓</span>
-              </a>
+					<strong class="dashboard-indicator-value" id="activeItemsCounter"> 0 </strong>
 
-              <button
-                class="btn btn-success btn-lg"
-                type="button"
-                data-pwa-install
-                data-native-label="Instalar Praça Central"
-                data-manual-label="Como instalar"
-                hidden
-              >
-                <span data-pwa-install-label>Instalar Praça Central</span>
-                <span data-pwa-install-icon aria-hidden="true">⇩</span>
-              </button>
+					<span class="dashboard-indicator-note"> Itens em uso </span>
+				</article>
 
-              <button class="btn btn-outline btn-lg" id="openAboutButton" type="button">
-                Conhecer a Central
-              </button>
-            </div>
-          </div>
-        </section>
+				<article class="dashboard-indicator">
+					<span class="dashboard-indicator-label"> Pendentes </span>
 
-        <section class="central-section central-section--apps" id="aplicacoes">
-          <header class="central-section__header">
-            <div>
-              <span class="central-eyebrow">Destinos disponíveis</span>
-              <h2>Escolha para onde ir</h2>
-              <p>
-                Cada aplicação resolve uma necessidade específica. A Central apenas organiza os caminhos.
-              </p>
-            </div>
+					<strong class="dashboard-indicator-value" id="pendingItemsCounter"> 0 </strong>
 
-            <span class="badge badge-primary" id="visibleAppsBadge">3 aplicações</span>
-          </header>
+					<span class="dashboard-indicator-note"> Itens para revisar </span>
+				</article>
 
-          <div class="central-toolbar">
-            <label class="central-search">
-              <span class="central-search__icon" aria-hidden="true">⌕</span>
-              <span class="sr-only">Pesquisar aplicações</span>
-              <input
-                class="input"
-                id="appSearchInput"
-                type="search"
-                placeholder="Pesquisar por nome, função ou categoria..."
-                autocomplete="off"
-              />
-            </label>
+				<article class="dashboard-indicator">
+					<span class="dashboard-indicator-label"> Concluídos </span>
 
-            <div class="central-filters" role="group" aria-label="Filtrar aplicações por categoria">
-              <button class="btn btn-secondary btn-sm" type="button" data-app-filter="all">
-                Todas
-              </button>
-              <button class="btn btn-outline btn-sm" type="button" data-app-filter="foco">
-                Foco
-              </button>
-              <button class="btn btn-outline btn-sm" type="button" data-app-filter="organizacao">
-                Organização
-              </button>
-              <button class="btn btn-outline btn-sm" type="button" data-app-filter="estudos">
-                Estudos
-              </button>
-            </div>
-          </div>
+					<strong class="dashboard-indicator-value" id="completedItemsCounter"> 0 </strong>
 
-          <div class="central-app-grid" id="appsGrid" aria-live="polite">
-            <!-- Os cards são renderizados pelo JavaScript. -->
-          </div>
+					<span class="dashboard-indicator-note"> Itens finalizados </span>
+				</article>
+			</section>
 
-          <section class="central-empty-state" id="appsEmptyState" hidden>
-            <div class="empty-state-icon" aria-hidden="true">⌕</div>
-            <h3>Nenhum caminho encontrado</h3>
-            <p>Tente outro termo de busca ou remova o filtro atual.</p>
-            <button class="btn btn-secondary" id="clearAppFiltersButton" type="button">
-              Limpar busca e filtros
-            </button>
-          </section>
-        </section>
+			<section class="alert alert-info alert-compact" id="appFeedback" role="status" hidden>
+				<div>
+					<h2 class="alert-title" id="appFeedbackTitle">Informação</h2>
 
-        <section class="central-section central-section--future" id="sobre">
-          <article class="central-future-card">
-            <div class="central-future-card__icon" aria-hidden="true">＋</div>
+					<p class="alert-text" id="appFeedbackMessage">Mensagem do sistema.</p>
+				</div>
+			</section>
 
-            <div class="central-future-card__content">
-              <span class="central-eyebrow">Praça em crescimento</span>
-              <h2>Novos caminhos podem surgir daqui.</h2>
-              <p>
-                A Praça Central foi criada para crescer junto com suas aplicações. Cada nova ferramenta
-                publicada pode ganhar um espaço próprio sem complicar a estrutura atual.
-              </p>
-            </div>
+			<section class="gallery-toolbar" aria-label="Busca e filtros">
+				<input class="input gallery-search" id="itemSearchInput" type="search" placeholder="Pesquisar item por nome, categoria ou descrição..." />
 
-            <div class="central-future-card__aside">
-              <span>Próximo passo</span>
-              <strong>Integrar novos destinos</strong>
-            </div>
-          </article>
-        </section>
-      </main>
+				<div class="gallery-filters" role="group" aria-label="Filtros de status">
+					<button class="btn btn-secondary btn-sm" type="button" data-filter-status="all">Todos</button>
 
-      <footer class="central-footer">
-        <div>
-          <strong>Praça Central</strong>
-          <p>Um ponto de encontro para aplicações úteis e independentes.</p>
-        </div>
+					<button class="btn btn-outline btn-sm" type="button" data-filter-status="active">Ativos</button>
 
-        <div class="central-footer__meta">
-          <span>v0.3 — FlashCore na Praça</span>
-          <span>© <span id="currentYear"></span> Vinícius Sidney</span>
-        </div>
-      </footer>
-    </div>
+					<button class="btn btn-outline btn-sm" type="button" data-filter-status="pending">Pendentes</button>
 
-    <div class="modal-overlay" id="appDetailsModal" hidden>
-      <section
-        class="modal modal-lg modal-accent"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="appDetailsTitle"
-      >
-        <header class="modal-header">
-          <div class="central-modal-title-group">
-            <div class="central-modal-icon" id="appDetailsIcon" aria-hidden="true"></div>
-            <div>
-              <span class="central-modal-kicker" id="appDetailsCategory">Aplicação</span>
-              <h2 class="modal-title" id="appDetailsTitle">Detalhes da aplicação</h2>
-            </div>
-          </div>
+					<button class="btn btn-outline btn-sm" type="button" data-filter-status="completed">Concluídos</button>
+				</div>
+			</section>
 
-          <button class="modal-close" id="closeAppDetailsButton" type="button" aria-label="Fechar detalhes">
-            ×
-          </button>
-        </header>
+			<section class="gallery-grid" id="itemsGrid" aria-label="Lista de itens">
+				<!-- Os cards serão renderizados pelo JavaScript -->
+			</section>
 
-        <div class="modal-body central-modal-body">
-          <p id="appDetailsDescription"></p>
+			<section class="layout-empty-state" id="itemsEmptyState">
+				<div class="empty-state">
+					<div class="empty-state-icon" aria-hidden="true">📦</div>
 
-          <div class="central-modal-info-grid">
-            <article>
-              <span>Versão</span>
-              <strong id="appDetailsVersion">—</strong>
-            </article>
-            <article>
-              <span>Status</span>
-              <strong id="appDetailsStatus">—</strong>
-            </article>
-          </div>
+					<h2 class="empty-state-title">Nenhum item cadastrado</h2>
 
-          <div>
-            <h3 class="central-modal-section-title">O que você encontra</h3>
-            <ul class="central-feature-list" id="appDetailsFeatures"></ul>
-          </div>
+					<p class="empty-state-description">Crie o primeiro item para testar cards, formulários, modais, badges, filtros e salvamento local.</p>
 
-          <div class="badge-group" id="appDetailsTags"></div>
-        </div>
+					<div class="empty-state-actions">
+						<button class="btn btn-primary" type="button" id="createFirstItemButton">Criar primeiro item</button>
 
-        <footer class="modal-actions">
-          <button class="btn btn-secondary" id="cancelAppDetailsButton" type="button">Voltar</button>
-          <a class="btn btn-primary" id="openAppFromModalLink" href="#" target="_blank" rel="noopener noreferrer">
-            Abrir aplicação
-            <span aria-hidden="true">↗</span>
-          </a>
-        </footer>
-      </section>
-    </div>
+						<a class="btn btn-ghost" href="./layout-preview.html"> Ver biblioteca visual </a>
+					</div>
 
-    <div class="modal-overlay" id="aboutModal" hidden>
-      <section class="modal modal-lg modal-glass" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
-        <header class="modal-header">
-          <div>
-            <span class="central-modal-kicker">Sobre o projeto</span>
-            <h2 class="modal-title" id="aboutModalTitle">Uma praça, vários destinos</h2>
-          </div>
+					<p class="empty-state-note">Este estado desaparece automaticamente quando houver itens cadastrados.</p>
+				</div>
+			</section>
 
-          <button class="modal-close" id="closeAboutButton" type="button" aria-label="Fechar informações">
-            ×
-          </button>
-        </header>
+			<footer class="gallery-footer">
+				<span id="visibleItemsCounter"> 0 itens exibidos </span>
 
-        <div class="modal-body central-about-content">
-          <p>
-            A Praça Central é uma aplicação independente e instalável que funciona como porta de entrada para outras
-            ferramentas publicadas. Ela não substitui as aplicações: organiza os caminhos e mantém sua própria
-            interface disponível mesmo quando a conexão estiver indisponível.
-          </p>
+				<span> Os dados serão salvos no localStorage durante a implementação da feature. </span>
+			</footer>
+		</main>
 
-          <div class="central-about-grid">
-            <article class="panel panel-accent">
-              <h3 class="panel-title">Leve</h3>
-              <p class="panel-description">Sem login, banco de dados ou dependências externas obrigatórias.</p>
-            </article>
-            <article class="panel panel-accent">
-              <h3 class="panel-title">Expansível</h3>
-              <p class="panel-description">Novas aplicações entram pela configuração de dados da feature.</p>
-            </article>
-            <article class="panel panel-accent">
-              <h3 class="panel-title">Independente</h3>
-              <p class="panel-description">Cada ferramenta continua funcionando e evoluindo em seu próprio repositório.</p>
-            </article>
-          </div>
-        </div>
+		<!-- Modal: Criar / Editar item -->
 
-        <footer class="modal-actions">
-          <button class="btn btn-primary" id="confirmAboutButton" type="button">Entendi</button>
-        </footer>
-      </section>
-    </div>
+		<div class="modal-overlay" id="itemFormModal" hidden>
+			<section class="modal modal-lg" role="dialog" aria-modal="true" aria-labelledby="itemFormModalTitle">
+				<header class="modal-header">
+					<h2 class="modal-title" id="itemFormModalTitle">Novo item</h2>
 
+					<button class="modal-close" type="button" id="closeItemFormModalButton" aria-label="Fechar modal">×</button>
+				</header>
 
-    <div class="modal-overlay" id="pwaInstallHelpModal" hidden>
-      <section
-        class="modal modal-lg modal-accent"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="pwaInstallHelpTitle"
-      >
-        <header class="modal-header">
-          <div>
-            <h2 class="modal-title" id="pwaInstallHelpTitle">Instalar a Praça Central</h2>
-            <p class="panel-description">O método de instalação depende do navegador e do sistema.</p>
-          </div>
+				<form class="form" id="itemForm">
+					<div class="modal-body">
+						<input type="hidden" id="itemIdInput" name="itemId" />
 
-          <button class="modal-close" id="closePwaInstallHelpButton" type="button" aria-label="Fechar orientações">
-            ×
-          </button>
-        </header>
+						<section class="form-section">
+							<h3 class="form-section-title">Informações principais</h3>
 
-        <div class="modal-body central-install-help">
-          <ol class="central-install-steps">
-            <li>Abra o menu principal do navegador.</li>
-            <li>Procure por <strong>Instalar aplicativo</strong>, <strong>Instalar página como app</strong>, <strong>Apps</strong> ou <strong>Adicionar à tela inicial</strong>.</li>
-            <li>Confirme a instalação e abra a Praça Central pela área de aplicativos do sistema.</li>
-          </ol>
+							<div class="form-group">
+								<label class="form-label" for="itemNameInput"> Nome do item <span class="form-required">*</span> </label>
 
-          <div class="alert alert-info">
-            <div>
-              <h3 class="alert-title">Para testar o botão nativo</h3>
-              <p class="alert-text">
-                Use Chrome ou Edge, interaja ao menos uma vez com a página e mantenha-a aberta por cerca de 30 segundos.
-                Quando o navegador liberar o prompt, este botão muda automaticamente para “Instalar”.
-              </p>
-            </div>
-          </div>
+								<input class="input" id="itemNameInput" name="itemName" type="text" placeholder="Ex.: Tela de estudos" required />
 
-          <p class="text-muted">
-            O evento usado pelo botão nativo não é padronizado e pode não ser oferecido por todos os navegadores,
-            mesmo quando a aplicação já possui manifesto e service worker válidos.
-          </p>
-        </div>
+								<p class="form-hint">Use um nome curto e fácil de identificar.</p>
 
-        <footer class="modal-actions">
-          <button class="btn btn-primary" id="confirmPwaInstallHelpButton" type="button">Entendi</button>
-        </footer>
-      </section>
-    </div>
+								<p class="form-error" id="itemNameError" hidden>Informe o nome do item.</p>
+							</div>
 
-    <div class="central-pwa-stack" aria-live="polite" aria-atomic="true">
-      <section class="central-pwa-banner central-pwa-banner--offline" id="pwaOfflineBanner" role="status" hidden>
-        <span class="central-pwa-banner__icon" aria-hidden="true">⌁</span>
-        <div>
-          <strong>Você está offline</strong>
-          <p>A Praça continua acessível, mas abrir outros destinos pode exigir conexão.</p>
-        </div>
-      </section>
+							<div class="form-group">
+								<label class="form-label" for="itemDescriptionInput"> Descrição </label>
 
-      <section class="central-pwa-banner central-pwa-banner--update" id="pwaUpdateBanner" role="status" hidden>
-        <span class="central-pwa-banner__icon" aria-hidden="true">↻</span>
-        <div class="central-pwa-banner__content">
-          <strong>Nova versão disponível</strong>
-          <p>Atualize a Praça Central para usar os arquivos mais recentes.</p>
-        </div>
-        <div class="central-pwa-banner__actions">
-          <button class="btn btn-primary btn-sm" id="pwaUpdateButton" type="button">Atualizar agora</button>
-          <button class="btn btn-ghost btn-sm" id="pwaDismissUpdateButton" type="button">Depois</button>
-        </div>
-      </section>
-    </div>
+								<textarea class="textarea" id="itemDescriptionInput" name="itemDescription" placeholder="Descreva rapidamente a função deste item"></textarea>
 
-    <script type="module" src="./src/scripts/main.js"></script>
-  </body>
+								<p class="form-hint">A descrição é opcional, mas ajuda a testar cards com conteúdo maior.</p>
+							</div>
+						</section>
+
+						<section class="form-section">
+							<h3 class="form-section-title">Organização</h3>
+
+							<div class="form-row">
+								<div class="form-group">
+									<label class="form-label" for="itemCategoryInput"> Categoria </label>
+
+									<select class="select" id="itemCategoryInput" name="itemCategory">
+										<option value="interface">Interface</option>
+
+										<option value="dados">Dados</option>
+
+										<option value="estudos">Estudos</option>
+
+										<option value="produtividade">Produtividade</option>
+
+										<option value="outros">Outros</option>
+									</select>
+								</div>
+
+								<div class="form-group">
+									<label class="form-label" for="itemStatusInput"> Status </label>
+
+									<select class="select" id="itemStatusInput" name="itemStatus">
+										<option value="active">Ativo</option>
+
+										<option value="pending">Pendente</option>
+
+										<option value="completed">Concluído</option>
+									</select>
+								</div>
+							</div>
+						</section>
+					</div>
+
+					<footer class="modal-actions">
+						<button class="btn btn-secondary" type="button" id="cancelItemFormButton">Cancelar</button>
+
+						<button class="btn btn-primary" type="submit" id="saveItemButton">Salvar item</button>
+					</footer>
+				</form>
+			</section>
+		</div>
+
+		<!-- Modal: Confirmar exclusão -->
+
+		<div class="modal-overlay" id="deleteItemModal" hidden>
+			<section class="modal modal-danger" role="dialog" aria-modal="true" aria-labelledby="deleteItemModalTitle">
+				<header class="modal-header">
+					<h2 class="modal-title" id="deleteItemModalTitle">Confirmar exclusão</h2>
+
+					<button class="modal-close" type="button" id="closeDeleteItemModalButton" aria-label="Fechar modal">×</button>
+				</header>
+
+				<div class="modal-body">
+					<p>Tem certeza de que deseja excluir este item?</p>
+
+					<p class="text-muted" id="deleteItemModalDescription">Esta ação removerá o item da lista.</p>
+				</div>
+
+				<footer class="modal-actions">
+					<button class="btn btn-secondary" type="button" id="cancelDeleteItemButton">Cancelar</button>
+
+					<button class="btn btn-danger" type="button" id="confirmDeleteItemButton">Excluir item</button>
+				</footer>
+			</section>
+		</div>
+
+		<script type="module" src="./src/scripts/main.js"></script>
+	</body>
 </html>
