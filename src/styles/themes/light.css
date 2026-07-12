@@ -1,13 +1,23 @@
-[data-theme="light"] {
-  --color-bg: #f3f4f6;
+[data-theme='light'] {
+  color-scheme: light;
+
+  --color-bg: #eeeafd;
+  --color-bg-soft: #e2dcf8;
   --color-surface: #ffffff;
-  --color-surface-soft: #e5e7eb;
-  --color-surface-strong: #d1d5db;
+  --color-surface-soft: #f0ecff;
+  --color-surface-strong: #ddd6f7;
+  --color-surface-elevated: #ffffff;
+  --color-surface-hover: #e5defb;
 
-  --color-text: #111827;
-  --color-text-muted: #4b5563;
-  --color-text-soft: #6b7280;
+  --color-text: #231a47;
+  --color-text-muted: #594f78;
+  --color-text-soft: #776c98;
+  --color-text-inverse: #ffffff;
 
-  --color-border: rgba(0, 0, 0, 0.12);
-  --color-border-strong: rgba(0, 0, 0, 0.24);
+  --color-border: rgba(54, 38, 113, 0.12);
+  --color-border-strong: rgba(54, 38, 113, 0.25);
+  --color-focus: #5d49c8;
+
+  --card-overlay: linear-gradient(180deg, rgba(109, 89, 217, 0.055), transparent);
+  --backdrop-color: rgba(27, 19, 60, 0.4);
 }

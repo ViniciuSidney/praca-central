@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="34" y1="28" x2="476" y2="484" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#04030D"/>
+      <stop offset="0.58" stop-color="#0B0820"/>
+      <stop offset="1" stop-color="#15103A"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(380 78) rotate(133) scale(430 468)">
+      <stop offset="0" stop-color="#5F52D0" stop-opacity="0.22"/>
+      <stop offset="0.5" stop-color="#3E34A1" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#120E31" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="stripes" patternUnits="userSpaceOnUse" width="22" height="22" patternTransform="rotate(-26)">
+      <rect width="22" height="22" fill="none"/>
+      <rect x="0" y="0" width="7" height="22" fill="#FFFFFF" opacity="0.018"/>
+    </pattern>
+    <linearGradient id="iconGrad" x1="110" y1="110" x2="404" y2="402" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9B8CFF"/>
+      <stop offset="0.52" stop-color="#6D61D8"/>
+      <stop offset="1" stop-color="#4F43C7"/>
+    </linearGradient>
+    <linearGradient id="iconGradSoft" x1="136" y1="126" x2="388" y2="388" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ADA2FF"/>
+      <stop offset="1" stop-color="#5B50CF"/>
+    </linearGradient>
+    <filter id="shadow" x="56" y="58" width="400" height="398" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#080615" flood-opacity="0.58"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="92" fill="url(#bgGrad)"/>
+  <rect width="512" height="512" rx="92" fill="url(#bgGlow)"/>
+  <rect width="512" height="512" rx="92" fill="url(#stripes)" opacity="0.95"/>
+
+  <g filter="url(#shadow)">
+    <!-- linhas de conexão -->
+    <path d="M256 152V206" stroke="url(#iconGradSoft)" stroke-width="22" stroke-linecap="round"/>
+    <path d="M152 256H206" stroke="url(#iconGradSoft)" stroke-width="22" stroke-linecap="round"/>
+    <path d="M306 256H360" stroke="url(#iconGradSoft)" stroke-width="22" stroke-linecap="round"/>
+    <path d="M256 306V360" stroke="url(#iconGradSoft)" stroke-width="22" stroke-linecap="round"/>
+
+    <!-- aplicações periféricas -->
+    <rect x="220" y="96" width="72" height="72" rx="22" fill="url(#iconGrad)"/>
+    <rect x="96" y="220" width="72" height="72" rx="22" fill="url(#iconGrad)"/>
+    <rect x="344" y="220" width="72" height="72" rx="22" fill="url(#iconGrad)"/>
+    <rect x="220" y="344" width="72" height="72" rx="22" fill="url(#iconGrad)"/>
+
+    <!-- hub central -->
+    <rect x="182" y="182" width="148" height="148" rx="34" fill="url(#iconGrad)"/>
+    <rect x="208" y="218" width="96" height="24" rx="12" fill="#E5E0FF" fill-opacity="0.95"/>
+    <rect x="208" y="270" width="64" height="24" rx="12" fill="#E5E0FF" fill-opacity="0.95"/>
+
+    <!-- detalhe de moldura central -->
+    <rect x="182" y="182" width="148" height="148" rx="34" stroke="#C8BEFF" stroke-opacity="0.14" stroke-width="2"/>
+  </g>
+</svg>

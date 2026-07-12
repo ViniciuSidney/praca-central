@@ -1,47 +1,25 @@
-@import url("./base/reset.css");
-@import url("./base/tokens.css");
-@import url("./themes/app-theme.css");
-@import url("./themes/light.css");
-@import url("./themes/dark.css");
-@import url("./base/typography.css");
+@import url('./base/tokens.css');
+@import url('./themes/app-theme.css');
+@import url('./themes/light.css');
+@import url('./themes/dark.css');
+@import url('./base/reset.css');
+@import url('./base/typography.css');
 
-@import url("./base-layout/grid.css");
-@import url("./base-layout/header.css");
-@import url("./base-layout/sidebar.css");
-@import url("./base-layout/footer.css");
+@import url('./components/buttons.css');
+@import url('./components/inputs.css');
+@import url('./components/theme-toggle.css');
+@import url('./components/navigation.css');
+@import url('./components/status-badge.css');
+@import url('./components/application-card.css');
+@import url('./components/sidebar.css');
+@import url('./components/toolbar.css');
+@import url('./components/modals.css');
 
-@import url("./components/buttons.css");
-@import url("./components/inputs.css");
-@import url("./components/forms.css");
-@import url("./components/toggles.css");
-@import url("./components/panels.css");
-@import url("./components/cards.css");
-@import url("./components/modals.css");
-@import url("./components/alerts.css");
-@import url("./components/badges.css");
-@import url("./components/tables.css");
+@import url('./layouts/app-shell.css');
+@import url('./layouts/applications-gallery.css');
 
-@import url("./components/visual-variants.css");
+@import url('./pages/home.css');
 
-@import url("./layouts/layout-hub.css");
-@import url("./layouts/layout-shell.css");
-@import url("./layouts/layout-dashboard.css");
-@import url("./layouts/layout-form.css");
-@import url("./layouts/layout-wizard.css");
-@import url("./layouts/layout-master-detail.css");
-@import url("./layouts/layout-crud.css");
-@import url("./layouts/layout-gallery.css");
-@import url("./layouts/layout-focus.css");
-@import url("./layouts/layout-settings.css");
-@import url("./layouts/layout-report.css");
-@import url("./layouts/layout-search.css");
-@import url("./layouts/layout-empty-state.css");
-
-@import url("./pages/home.css");
-@import url("./pages/layout-preview.css");
-
-@import url("./utilities/spacing.css");
-@import url("./utilities/scrollbar.css");
-@import url("./utilities/states.css");
-@import url("./utilities/responsive.css");
-@import url("./utilities/helpers.css");
+@import url('./utilities/states.css');
+@import url('./utilities/scrollbar.css');
+@import url('./utilities/responsive.css');

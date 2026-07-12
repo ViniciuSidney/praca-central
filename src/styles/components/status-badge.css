@@ -1,0 +1,36 @@
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.65rem;
+  width: fit-content;
+  padding: 0.26rem 0.55rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.68rem;
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+.status-completed {
+  border-color: rgba(110, 203, 139, 0.42);
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.status-development {
+  border-color: rgba(232, 181, 91, 0.45);
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
+.status-prototype {
+  border-color: rgba(122, 168, 239, 0.45);
+  background: var(--color-info-soft);
+  color: var(--color-info);
+}
+
+.status-legacy {
+  border-color: var(--color-border-strong);
+  background: var(--color-neutral-soft);
+  color: var(--color-text-muted);
+}

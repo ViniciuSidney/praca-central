@@ -1,34 +1,25 @@
-# Fluxos e Telas
+# 03 — Fluxos e Telas
 
-## Telas principais
+## Tela inicial
+1. O usuário entra na Praça Central.
+2. A seção “Aplicações” é exibida.
+3. A primeira aplicação fica selecionada no painel lateral.
+4. O usuário pode pesquisar, filtrar, alterar a visualização ou trocar de seção.
 
-### Tela 1 - [Nome da tela]
+## Seleção
+1. O usuário clica em um card ou em um atalho lateral.
+2. A aplicação selecionada recebe destaque.
+3. O painel lateral é atualizado.
 
-Objetivo:
-[Para que essa tela serve?]
+## Detalhes
+1. O usuário aciona “Detalhes”.
+2. Um modal exibe descrição, versão, status, categoria e tecnologias.
+3. Ao fechar, pesquisa e filtros permanecem inalterados.
 
-Elementos:
-- [Elemento da interface]
-- [Elemento da interface]
-- [Elemento da interface]
+## Abertura
+1. O usuário aciona “Abrir”.
+2. Se houver URL válida, o sistema abre a aplicação em nova aba e registra o acesso recente.
+3. Sem URL válida, o controle permanece desabilitado.
 
-Ações do usuário:
-- [Ação possível]
-- [Ação possível]
-
-Estados importantes:
-- Estado vazio: [O que aparece se não houver dados?]
-- Estado com dados: [O que aparece quando há dados?]
-- Estado de erro: [O que aparece se algo der errado?]
-
----
-
-## Fluxos principais
-
-### Fluxo 1 - [Nome do fluxo]
-
-1. Usuário acessa [tela].
-2. Usuário realiza [ação].
-3. Sistema responde com [resultado].
-4. Usuário confirma/finaliza [ação].
-5. Sistema salva/atualiza [informação].
+## Responsividade
+Em até 900 px, o painel lateral se transforma em gaveta sobreposta e é aberto pelo botão no cabeçalho.

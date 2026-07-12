@@ -1,0 +1,265 @@
+@media (max-width: 1180px) {
+  :root {
+    --sidebar-width: 16rem;
+  }
+
+  .app-header {
+    grid-template-columns: minmax(14rem, 17rem) minmax(0, 1fr) auto;
+  }
+
+  .theme-toggle-label {
+    display: none;
+  }
+
+  .theme-toggle {
+    padding-inline: 0.52rem;
+  }
+
+  .application-card-main {
+    grid-template-columns: 5.7rem minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .app-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .main-navigation {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .header-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .sidebar-toggle {
+    display: inline-flex;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: var(--app-gap) auto var(--app-gap) var(--app-gap);
+    z-index: var(--z-drawer);
+    width: min(20rem, calc(100vw - (var(--app-gap) * 2)));
+    padding: var(--app-gap);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-xl);
+    background: var(--color-bg-soft);
+    box-shadow: var(--shadow-lg);
+    transform: translateX(calc(-100% - (var(--app-gap) * 2)));
+    visibility: hidden;
+    transition:
+      transform var(--transition-normal),
+      visibility var(--transition-normal);
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .sidebar-close {
+    display: inline-flex;
+  }
+
+  .sidebar-search .search-input {
+    padding-right: 3rem;
+  }
+
+  .sidebar-close {
+    position: absolute;
+    right: 0.72rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .applications-grid[data-view='grid'] > .application-card:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  :root {
+    --app-gap: 0.45rem;
+    --panel-padding: 0.7rem;
+  }
+
+  .brand-panel {
+    padding: 0.5rem 0.65rem;
+  }
+
+  .brand-mark {
+    width: 2.55rem;
+    height: 2.55rem;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 0.4rem;
+    padding: 0.5rem;
+  }
+
+  .header-actions .icon-button,
+  .theme-toggle {
+    width: 2.45rem;
+    height: 2.45rem;
+    min-height: 2.45rem;
+  }
+
+  .theme-toggle-icon {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+
+  .main-navigation {
+    padding: 0.5rem;
+  }
+
+  .nav-item {
+    min-height: 2.4rem;
+    padding: 0.55rem 0.8rem;
+    font-size: var(--font-size-xs);
+  }
+
+  .applications-toolbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .filter-toggle {
+    width: 2.65rem;
+    min-width: 2.65rem;
+    overflow: hidden;
+    padding-inline: 0.65rem;
+    text-indent: -999px;
+  }
+
+  .filter-toggle::before {
+    content: '≡';
+    text-indent: 0;
+    font-size: 1.2rem;
+  }
+
+  .filter-count {
+    position: absolute;
+    top: -0.3rem;
+    right: -0.3rem;
+    text-indent: 0;
+  }
+
+  .list-heading {
+    align-items: center;
+  }
+
+  .list-title {
+    display: none;
+  }
+
+  .application-card {
+    min-height: 11.5rem;
+  }
+
+  .application-card-main,
+  .applications-grid[data-view='list'] .application-card-main {
+    grid-template-columns: 4.8rem minmax(0, 1fr);
+    padding: 0.75rem;
+  }
+
+  .application-card-media,
+  .applications-grid[data-view='list'] .application-card-media {
+    min-height: 4.8rem;
+  }
+
+  .application-card-description {
+    -webkit-line-clamp: 2;
+  }
+
+  .application-card-actions {
+    gap: 0.55rem;
+    padding: 0 0.75rem 0.75rem;
+  }
+
+  .application-card-actions .btn {
+    min-height: 2.35rem;
+    padding: 0.55rem 0.65rem;
+    font-size: var(--font-size-xs);
+  }
+
+  .app-footer {
+    grid-template-columns: 1fr auto;
+    min-height: 2.8rem;
+    padding-block: 0.5rem;
+  }
+
+  .footer-title {
+    display: none;
+  }
+
+  .footer-author {
+    grid-column: 2;
+  }
+
+  .details-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .details-icon {
+    width: 6.5rem;
+  }
+}
+
+@media (max-height: 700px) {
+  :root {
+    --app-gap: 0.45rem;
+    --panel-padding: 0.7rem;
+  }
+
+  .brand-panel,
+  .main-navigation,
+  .header-actions,
+  .applications-toolbar {
+    padding-block: 0.45rem;
+  }
+
+  .brand-mark {
+    width: 2.45rem;
+    height: 2.45rem;
+  }
+
+  .nav-item,
+  .theme-toggle,
+  .icon-button,
+  .btn {
+    min-height: 2.35rem;
+  }
+
+  .app-footer {
+    min-height: 2.7rem;
+    padding-block: 0.45rem;
+  }
+
+  .selected-application {
+    min-height: 9rem;
+  }
+
+  .selected-application-icon {
+    width: 4rem;
+  }
+}

@@ -1,223 +1,315 @@
 <!doctype html>
 <html lang="pt-BR" data-theme="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<title>Modelo de Projeto | Aplicação Exemplo</title>
-
-		<link rel="stylesheet" href="./src/styles/main.css" />
-	</head>
-
-	<body>
-		<main id="app" class="layout-gallery">
-			<header class="gallery-header">
-				<div class="gallery-title-group">
-					<span class="badge badge-primary"> Aplicação exemplo </span>
-
-					<h1 class="gallery-title">Gerenciador de Itens</h1>
-
-					<p class="gallery-description">
-						Esta é uma mini aplicação funcional para demonstrar como usar o modelo de projeto com HTML real, CSS reutilizável, componentes base, layouts e JavaScript organizado por feature.
-					</p>
-				</div>
-
-				<div class="gallery-actions">
-					<a class="btn btn-secondary" href="./layout-preview.html"> Ver biblioteca visual </a>
-
-					<button class="btn btn-primary" type="button" id="openCreateItemModalButton">Novo item</button>
-				</div>
-			</header>
-
-			<section class="dashboard-indicators" aria-label="Resumo dos itens">
-				<article class="dashboard-indicator">
-					<span class="dashboard-indicator-label"> Total </span>
-
-					<strong class="dashboard-indicator-value" id="totalItemsCounter"> 0 </strong>
-
-					<span class="dashboard-indicator-note"> Itens cadastrados </span>
-				</article>
-
-				<article class="dashboard-indicator">
-					<span class="dashboard-indicator-label"> Ativos </span>
-
-					<strong class="dashboard-indicator-value" id="activeItemsCounter"> 0 </strong>
-
-					<span class="dashboard-indicator-note"> Itens em uso </span>
-				</article>
-
-				<article class="dashboard-indicator">
-					<span class="dashboard-indicator-label"> Pendentes </span>
-
-					<strong class="dashboard-indicator-value" id="pendingItemsCounter"> 0 </strong>
-
-					<span class="dashboard-indicator-note"> Itens para revisar </span>
-				</article>
-
-				<article class="dashboard-indicator">
-					<span class="dashboard-indicator-label"> Concluídos </span>
-
-					<strong class="dashboard-indicator-value" id="completedItemsCounter"> 0 </strong>
-
-					<span class="dashboard-indicator-note"> Itens finalizados </span>
-				</article>
-			</section>
-
-			<section class="alert alert-info alert-compact" id="appFeedback" role="status" hidden>
-				<div>
-					<h2 class="alert-title" id="appFeedbackTitle">Informação</h2>
-
-					<p class="alert-text" id="appFeedbackMessage">Mensagem do sistema.</p>
-				</div>
-			</section>
-
-			<section class="gallery-toolbar" aria-label="Busca e filtros">
-				<input class="input gallery-search" id="itemSearchInput" type="search" placeholder="Pesquisar item por nome, categoria ou descrição..." />
-
-				<div class="gallery-filters" role="group" aria-label="Filtros de status">
-					<button class="btn btn-secondary btn-sm" type="button" data-filter-status="all">Todos</button>
-
-					<button class="btn btn-outline btn-sm" type="button" data-filter-status="active">Ativos</button>
-
-					<button class="btn btn-outline btn-sm" type="button" data-filter-status="pending">Pendentes</button>
-
-					<button class="btn btn-outline btn-sm" type="button" data-filter-status="completed">Concluídos</button>
-				</div>
-			</section>
-
-			<section class="gallery-grid" id="itemsGrid" aria-label="Lista de itens">
-				<!-- Os cards serão renderizados pelo JavaScript -->
-			</section>
-
-			<section class="layout-empty-state" id="itemsEmptyState">
-				<div class="empty-state">
-					<div class="empty-state-icon" aria-hidden="true">📦</div>
-
-					<h2 class="empty-state-title">Nenhum item cadastrado</h2>
-
-					<p class="empty-state-description">Crie o primeiro item para testar cards, formulários, modais, badges, filtros e salvamento local.</p>
-
-					<div class="empty-state-actions">
-						<button class="btn btn-primary" type="button" id="createFirstItemButton">Criar primeiro item</button>
-
-						<a class="btn btn-ghost" href="./layout-preview.html"> Ver biblioteca visual </a>
-					</div>
-
-					<p class="empty-state-note">Este estado desaparece automaticamente quando houver itens cadastrados.</p>
-				</div>
-			</section>
-
-			<footer class="gallery-footer">
-				<span id="visibleItemsCounter"> 0 itens exibidos </span>
-
-				<span> Os dados serão salvos no localStorage durante a implementação da feature. </span>
-			</footer>
-		</main>
-
-		<!-- Modal: Criar / Editar item -->
-
-		<div class="modal-overlay" id="itemFormModal" hidden>
-			<section class="modal modal-lg" role="dialog" aria-modal="true" aria-labelledby="itemFormModalTitle">
-				<header class="modal-header">
-					<h2 class="modal-title" id="itemFormModalTitle">Novo item</h2>
-
-					<button class="modal-close" type="button" id="closeItemFormModalButton" aria-label="Fechar modal">×</button>
-				</header>
-
-				<form class="form" id="itemForm">
-					<div class="modal-body">
-						<input type="hidden" id="itemIdInput" name="itemId" />
-
-						<section class="form-section">
-							<h3 class="form-section-title">Informações principais</h3>
-
-							<div class="form-group">
-								<label class="form-label" for="itemNameInput"> Nome do item <span class="form-required">*</span> </label>
-
-								<input class="input" id="itemNameInput" name="itemName" type="text" placeholder="Ex.: Tela de estudos" required />
-
-								<p class="form-hint">Use um nome curto e fácil de identificar.</p>
-
-								<p class="form-error" id="itemNameError" hidden>Informe o nome do item.</p>
-							</div>
-
-							<div class="form-group">
-								<label class="form-label" for="itemDescriptionInput"> Descrição </label>
-
-								<textarea class="textarea" id="itemDescriptionInput" name="itemDescription" placeholder="Descreva rapidamente a função deste item"></textarea>
-
-								<p class="form-hint">A descrição é opcional, mas ajuda a testar cards com conteúdo maior.</p>
-							</div>
-						</section>
-
-						<section class="form-section">
-							<h3 class="form-section-title">Organização</h3>
-
-							<div class="form-row">
-								<div class="form-group">
-									<label class="form-label" for="itemCategoryInput"> Categoria </label>
-
-									<select class="select" id="itemCategoryInput" name="itemCategory">
-										<option value="interface">Interface</option>
-
-										<option value="dados">Dados</option>
-
-										<option value="estudos">Estudos</option>
-
-										<option value="produtividade">Produtividade</option>
-
-										<option value="outros">Outros</option>
-									</select>
-								</div>
-
-								<div class="form-group">
-									<label class="form-label" for="itemStatusInput"> Status </label>
-
-									<select class="select" id="itemStatusInput" name="itemStatus">
-										<option value="active">Ativo</option>
-
-										<option value="pending">Pendente</option>
-
-										<option value="completed">Concluído</option>
-									</select>
-								</div>
-							</div>
-						</section>
-					</div>
-
-					<footer class="modal-actions">
-						<button class="btn btn-secondary" type="button" id="cancelItemFormButton">Cancelar</button>
-
-						<button class="btn btn-primary" type="submit" id="saveItemButton">Salvar item</button>
-					</footer>
-				</form>
-			</section>
-		</div>
-
-		<!-- Modal: Confirmar exclusão -->
-
-		<div class="modal-overlay" id="deleteItemModal" hidden>
-			<section class="modal modal-danger" role="dialog" aria-modal="true" aria-labelledby="deleteItemModalTitle">
-				<header class="modal-header">
-					<h2 class="modal-title" id="deleteItemModalTitle">Confirmar exclusão</h2>
-
-					<button class="modal-close" type="button" id="closeDeleteItemModalButton" aria-label="Fechar modal">×</button>
-				</header>
-
-				<div class="modal-body">
-					<p>Tem certeza de que deseja excluir este item?</p>
-
-					<p class="text-muted" id="deleteItemModalDescription">Esta ação removerá o item da lista.</p>
-				</div>
-
-				<footer class="modal-actions">
-					<button class="btn btn-secondary" type="button" id="cancelDeleteItemButton">Cancelar</button>
-
-					<button class="btn btn-danger" type="button" id="confirmDeleteItemButton">Excluir item</button>
-				</footer>
-			</section>
-		</div>
-
-		<script type="module" src="./src/scripts/main.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Praça Central: central organizada de acesso às aplicações desenvolvidas por Vinícius Sidney."
+    />
+    <meta name="theme-color" content="#08060f" />
+
+    <title>Praça Central | Central de Aplicações</title>
+
+    <link rel="icon" href="./public/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="./public/manifest.json" />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#applicationsRegion">Ir para as aplicações</a>
+
+    <div class="app-shell">
+      <header class="app-header" aria-label="Cabeçalho principal">
+        <a class="brand-panel surface-panel" href="#" aria-label="Ir para todas as aplicações">
+          <img
+            class="brand-mark"
+            src="./src/assets/icons/praca-central.png"
+            alt=""
+            width="48"
+            height="48"
+            aria-hidden="true"
+          />
+          <span class="brand-copy">
+            <strong class="brand-name">Praça Central</strong>
+            <span class="brand-subtitle">Central de aplicações</span>
+          </span>
+        </a>
+
+        <nav class="main-navigation surface-panel" aria-label="Navegação principal">
+          <button class="nav-item is-active" type="button" data-nav="all" aria-pressed="true">
+            Aplicações
+          </button>
+          <button class="nav-item" type="button" data-nav="favorites" aria-pressed="false">
+            Favoritos
+          </button>
+          <button class="nav-item" type="button" data-nav="development" aria-pressed="false">
+            Em desenvolvimento
+          </button>
+          <button class="nav-item" type="button" data-nav="recent" aria-pressed="false">
+            Recentes
+          </button>
+        </nav>
+
+        <div class="header-actions surface-panel" aria-label="Ações extras">
+          <button
+            class="icon-button sidebar-toggle"
+            id="sidebarToggle"
+            type="button"
+            aria-controls="sidebar"
+            aria-expanded="false"
+            aria-label="Abrir painel lateral"
+            title="Abrir painel lateral"
+          >
+            <span aria-hidden="true">☰</span>
+          </button>
+
+          <button
+            class="icon-button"
+            id="aboutButton"
+            type="button"
+            aria-label="Sobre a Praça Central"
+            title="Sobre a Praça Central"
+          >
+            <span aria-hidden="true">i</span>
+          </button>
+
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Ativar tema claro"
+            aria-pressed="false"
+            title="Alternar tema"
+          >
+            <span class="theme-toggle-icon" id="themeToggleIcon" aria-hidden="true">☀</span>
+            <span class="theme-toggle-label" id="themeToggleLabel">Tema claro</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="sidebar" id="sidebar" aria-label="Painel lateral">
+          <div class="sidebar-search surface-panel">
+            <label class="sr-only" for="sidebarSearch">Pesquisar atalhos de aplicações</label>
+            <span class="input-icon" aria-hidden="true">⌕</span>
+            <input
+              id="sidebarSearch"
+              class="search-input"
+              type="search"
+              placeholder="Pesquisar atalhos"
+              autocomplete="off"
+            />
+            <button
+              class="icon-button sidebar-close"
+              id="sidebarClose"
+              type="button"
+              aria-label="Fechar painel lateral"
+              title="Fechar painel"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <section class="sidebar-panel surface-panel" aria-labelledby="selectedApplicationTitle">
+            <div class="selected-application" id="selectedApplication">
+              <!-- Conteúdo renderizado por JavaScript. -->
+            </div>
+
+            <a
+              class="btn btn-primary sidebar-primary-action"
+              id="selectedOpenButton"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Abrir aplicação
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <div class="sidebar-extra">
+              <header class="sidebar-extra-header">
+                <div>
+                  <span class="eyebrow">Acesso rápido</span>
+                  <h2 class="sidebar-extra-title" id="selectedApplicationTitle">Aplicações</h2>
+                </div>
+                <span class="sidebar-count" id="sidebarCount">0</span>
+              </header>
+
+              <div class="quick-list" id="quickList" aria-live="polite"></div>
+            </div>
+          </section>
+        </aside>
+
+        <section class="content-panel" aria-label="Conteúdo principal">
+          <header class="applications-toolbar surface-panel">
+            <div class="main-search">
+              <label class="sr-only" for="mainSearch">Pesquisar aplicações</label>
+              <span class="input-icon" aria-hidden="true">⌕</span>
+              <input
+                id="mainSearch"
+                class="search-input"
+                type="search"
+                placeholder="Pesquisar aplicações"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="toolbar-actions">
+              <button
+                class="icon-button view-toggle"
+                id="viewToggle"
+                type="button"
+                aria-label="Ativar visualização em lista"
+                title="Alterar visualização"
+              >
+                <span id="viewToggleIcon" aria-hidden="true">▦</span>
+              </button>
+
+              <div class="filter-wrapper">
+                <button
+                  class="btn btn-secondary filter-toggle"
+                  id="filterToggle"
+                  type="button"
+                  aria-controls="filterPanel"
+                  aria-expanded="false"
+                >
+                  Filtrar
+                  <span class="filter-count" id="filterCount" hidden>0</span>
+                </button>
+
+                <div class="filter-panel surface-panel" id="filterPanel" hidden>
+                  <div class="filter-panel-header">
+                    <div>
+                      <span class="eyebrow">Refinar listagem</span>
+                      <h2>Filtros</h2>
+                    </div>
+                    <button
+                      class="icon-button"
+                      id="filterClose"
+                      type="button"
+                      aria-label="Fechar filtros"
+                    >
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+
+                  <label class="form-field">
+                    <span>Categoria</span>
+                    <select id="categoryFilter">
+                      <option value="all">Todas as categorias</option>
+                    </select>
+                  </label>
+
+                  <label class="form-field">
+                    <span>Status</span>
+                    <select id="statusFilter">
+                      <option value="all">Todos os status</option>
+                    </select>
+                  </label>
+
+                  <label class="checkbox-field">
+                    <input id="favoritesFilter" type="checkbox" />
+                    <span>Somente favoritos</span>
+                  </label>
+
+                  <button class="btn btn-secondary" id="clearFilters" type="button">
+                    Limpar filtros
+                  </button>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <section class="applications-region surface-panel" id="applicationsRegion" tabindex="-1">
+            <header class="list-heading">
+              <div>
+                <span class="eyebrow" id="activeSectionLabel">Todas as aplicações</span>
+                <h1 class="list-title">Central de aplicações</h1>
+              </div>
+              <p class="result-summary" id="resultSummary" aria-live="polite">0 aplicações</p>
+            </header>
+
+            <div class="applications-scroll">
+              <div class="applications-grid" id="applicationsGrid" data-view="grid" aria-live="polite">
+                <!-- Cards renderizados por JavaScript. -->
+              </div>
+            </div>
+
+            <noscript>
+              <p class="noscript-message">Ative o JavaScript para visualizar as aplicações.</p>
+            </noscript>
+          </section>
+        </section>
+      </main>
+
+      <footer class="app-footer surface-panel">
+        <span class="footer-version" id="appVersion">v0.1.0</span>
+        <span class="footer-title">Praça Central</span>
+        <span class="footer-author">Por Vinícius Sidney</span>
+      </footer>
+    </div>
+
+    <button class="sidebar-backdrop" id="sidebarBackdrop" type="button" aria-label="Fechar painel lateral" hidden></button>
+
+    <dialog class="app-dialog" id="detailsDialog" aria-labelledby="detailsTitle">
+      <div class="dialog-shell">
+        <header class="dialog-header">
+          <div>
+            <span class="eyebrow">Detalhes da aplicação</span>
+            <h2 id="detailsTitle">Aplicação</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-dialog aria-label="Fechar detalhes">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+
+        <div class="dialog-body" id="detailsBody"></div>
+
+        <footer class="dialog-footer">
+          <button class="btn btn-secondary" type="button" data-close-dialog>Fechar</button>
+          <a
+            class="btn btn-primary"
+            id="detailsOpenButton"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Abrir aplicação
+            <span aria-hidden="true">↗</span>
+          </a>
+        </footer>
+      </div>
+    </dialog>
+
+    <dialog class="app-dialog" id="aboutDialog" aria-labelledby="aboutTitle">
+      <div class="dialog-shell dialog-shell-compact">
+        <header class="dialog-header">
+          <div>
+            <span class="eyebrow">Informações</span>
+            <h2 id="aboutTitle">Sobre a Praça Central</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-dialog aria-label="Fechar informações">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+
+        <div class="dialog-body prose">
+          <p>
+            A Praça Central reúne, em um único lugar, as aplicações desenvolvidas por Vinícius Sidney.
+          </p>
+          <p>
+            Esta reconstrução prioriza uma interface fixa, modular e organizada, com rolagem apenas nas áreas internas.
+          </p>
+        </div>
+
+        <footer class="dialog-footer">
+          <button class="btn btn-primary" type="button" data-close-dialog>Entendido</button>
+        </footer>
+      </div>
+    </dialog>
+
+    <script type="module" src="./src/scripts/main.js"></script>
+  </body>
 </html>

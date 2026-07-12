@@ -1,40 +1,18 @@
-# Testes
+# 06 — Testes
 
-## Informações
+Os testes manuais oficiais estão em `tests/manual-tests.md`.
 
-Projeto: [Nome do projeto]  
-Versão testada: [v0.1]  
-Data: [dd/mm/aaaa]
+## Ambientes prioritários
+- desktop: 1920×1080, 1440×900 e 1366×768;
+- tablet: 1024×768 e 768×1024;
+- celular: 390×844 e 360×800;
+- Chrome, Edge e Opera.
 
----
-
-## Testes principais
-
-| Código | Teste | Resultado esperado | Status |
-|---|---|---|---|
-| T01 | [Ação testada] | [O que deve acontecer] | Pendente |
-| T02 | [Ação testada] | [O que deve acontecer] | Pendente |
-| T03 | [Ação testada] | [O que deve acontecer] | Pendente |
-
----
-
-## Bugs encontrados
-
-### Bug 1
-
-Descrição:
-[Explique o problema.]
-
-Como reproduzir:
-1. [Passo]
-2. [Passo]
-3. [Passo]
-
-Status:
-[Pendente / Corrigido]
-
----
-
-## Observações
-
-[Anotações gerais dos testes.]
+## Critérios centrais
+- ausência de erros no console;
+- ausência de rolagem global;
+- rolagens internas funcionais;
+- nenhum conteúdo extrapolando os painéis;
+- filtros e pesquisas combináveis;
+- preferências persistidas;
+- navegação completa por teclado.

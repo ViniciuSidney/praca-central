@@ -1,39 +1,26 @@
-# Dados e Arquitetura
+# 04 — Dados e Arquitetura
 
-## Dados principais
+## Fonte de dados
+As aplicações são cadastradas em `src/scripts/data/applications.js`.
 
-### Entidade: [Nome]
+## Feature de aplicações
+- `applications.model.js`: normalização e validação;
+- `applications.service.js`: pesquisa, filtros e localStorage;
+- `applications.ui.js`: templates e renderização;
+- `applications.controller.js`: estado, eventos e coordenação.
 
-Campos:
-- id: identificador único
-- campo1: descrição
-- campo2: descrição
-- campo3: descrição
+## Persistência local
+Chaves utilizadas:
+- `praca-central:theme`;
+- `praca-central:view`;
+- `praca-central:favorites`;
+- `praca-central:recent`.
 
----
+## Layout
+A estrutura principal usa CSS Grid com três linhas:
 
-## Relações entre dados
+```css
+grid-template-rows: auto minmax(0, 1fr) auto;
+```
 
-- [Entidade A] possui vários [Entidade B].
-- [Entidade B] pertence a [Entidade A].
-
----
-
-## Estrutura de arquivos
-
-```text
-/
-  index.html
-  README.md
-
-  /css
-    style.css
-
-  /js
-    app.js
-    storage.js
-    ui.js
-
-  /docs
-    01-visao-do-projeto.md
-    02-requisitos-e-escopo.md
+O uso de `min-height: 0` nas áreas internas impede que o conteúdo expanda a página e garante a rolagem apenas nos painéis previstos.

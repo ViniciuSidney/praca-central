@@ -1,195 +1,78 @@
-/* ============================= */
-/* Buttons                       */
-/* ============================= */
-
-.btn {
+.btn,
+.icon-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
-
-  min-height: 2.5rem;
-  padding: 0.65rem 1rem;
-
   border: 1px solid transparent;
-  border-radius: var(--radius-md);
-
-  font-size: var(--font-size-sm);
+  color: var(--color-text);
   font-weight: var(--font-weight-bold);
-  line-height: 1;
-
-  cursor: pointer;
-  user-select: none;
-
   transition:
-    background var(--transition-fast),
-    color var(--transition-fast),
-    border-color var(--transition-fast),
     transform var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
     opacity var(--transition-fast);
 }
 
-.btn:hover {
+.btn {
+  min-height: 2.6rem;
+  padding: 0.68rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+}
+
+.icon-button {
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 auto;
+  border-color: var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+  font-size: 1rem;
+}
+
+.btn:hover,
+.icon-button:hover {
   transform: translateY(-1px);
 }
 
-.btn:active {
+.btn:active,
+.icon-button:active {
   transform: translateY(0);
 }
 
-.btn:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
+.btn:focus-visible,
+.icon-button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
 }
-
-/* Tipos */
 
 .btn-primary {
   background: var(--color-primary);
-  color: var(--color-text-inverse);
+  color: var(--color-primary-contrast);
 }
 
 .btn-primary:hover {
   background: var(--color-primary-hover);
 }
 
-.btn-primary:active {
-  background: var(--color-primary-active);
-}
-
 .btn-secondary {
-  background: var(--color-surface-soft);
-  color: var(--color-text);
   border-color: var(--color-border);
-}
-
-.btn-secondary:hover {
-  background: var(--color-surface);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--color-text);
-  border-color: var(--color-border-strong);
-}
-
-.btn-outline:hover {
-  background: var(--color-surface);
-}
-
-.btn-danger {
-  background: var(--color-danger);
-  color: var(--color-text);
-}
-
-.btn-danger:hover {
-  background: var(--color-danger-hover);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--color-text-muted);
-}
-
-.btn-ghost:hover {
   background: var(--color-surface-soft);
   color: var(--color-text);
 }
 
-.btn-success {
-  background: var(--color-success);
-  color: var(--color-text);
+.btn-secondary:hover,
+.icon-button:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-hover);
 }
 
-.btn-success:hover {
-  filter: brightness(0.95);
-}
-
-/* Tamanhos */
-
-.btn-sm {
-  min-height: 2rem;
-  padding: 0.45rem 0.75rem;
-  font-size: var(--font-size-xs);
-}
-
-.btn-md {
-  min-height: 2.5rem;
-  padding: 0.65rem 1rem;
-}
-
-.btn-lg {
-  min-height: 3rem;
-  padding: 0.85rem 1.25rem;
-  font-size: var(--font-size-md);
-}
-
-.btn-full {
-  width: 100%;
-}
-
-/* Estado desabilitado */
-
+.btn[aria-disabled='true'],
 .btn:disabled,
-.btn.is-disabled {
-  opacity: 0.55;
+.icon-button:disabled {
+  opacity: 0.46;
   cursor: not-allowed;
   pointer-events: none;
-  transform: none;
-}
-
-/* Grupo de botões */
-
-.btn-group {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
-}
-
-/* ============================= */
-/* Button States                 */
-/* ============================= */
-
-.btn.is-active,
-.btn.is-selected {
-  border-color: var(--color-primary);
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-}
-
-.btn.is-loading {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-xs);
-}
-
-.btn.is-loading::after {
-  flex: 0 0 auto;
-}
-
-.btn.is-icon-only {
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn.is-soft {
-  background: var(--color-primary-soft);
-  color: var(--color-primary);
-}
-
-.btn.is-danger-soft {
-  background: var(--color-danger-soft);
-  color: var(--color-danger);
-}
-
-.btn.is-success-soft {
-  background: var(--color-success-soft);
-  color: var(--color-success);
 }

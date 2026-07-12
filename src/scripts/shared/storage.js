@@ -1,53 +1,22 @@
-// =============================
-// Shared: Storage Helpers
-// File: storage.js
-// =============================
+export function readStorage(key, fallback = null) {
+  try {
+    const rawValue = localStorage.getItem(key);
 
-export function getStorageItem(key, fallback = null) {
-	try {
-		const storedValue = localStorage.getItem(key);
+    if (rawValue === null) {
+      return fallback;
+    }
 
-		if (storedValue === null) {
-			return fallback;
-		}
-
-		return JSON.parse(storedValue);
-	} catch (error) {
-		console.error(`Erro ao ler "${key}" do localStorage:`, error);
-		return fallback;
-	}
+    return JSON.parse(rawValue);
+  } catch (error) {
+    console.warn(`Não foi possível ler o armazenamento: ${key}.`, error);
+    return fallback;
+  }
 }
 
-export function setStorageItem(key, value) {
-	try {
-		localStorage.setItem(key, JSON.stringify(value));
-		return true;
-	} catch (error) {
-		console.error(`Erro ao salvar "${key}" no localStorage:`, error);
-		return false;
-	}
-}
-
-export function removeStorageItem(key) {
-	try {
-		localStorage.removeItem(key);
-		return true;
-	} catch (error) {
-		console.error(`Erro ao remover "${key}" do localStorage:`, error);
-		return false;
-	}
-}
-
-export function clearStorage() {
-	try {
-		localStorage.clear();
-		return true;
-	} catch (error) {
-		console.error('Erro ao limpar localStorage:', error);
-		return false;
-	}
-}
-
-export function storageKey(namespace, key) {
-	return `${namespace}:${key}`;
+export function writeStorage(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    console.warn(`Não foi possível salvar no armazenamento: ${key}.`, error);
+  }
 }
