@@ -20,11 +20,14 @@
 
 .filter-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .filter-toggle {
   position: relative;
   min-width: 7rem;
+  align-self: center;
 }
 
 .filter-toggle.is-active {

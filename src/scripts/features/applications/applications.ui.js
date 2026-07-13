@@ -53,17 +53,6 @@ export function createApplicationCard(application, context) {
       <div class="application-card-main">
         <div class="application-card-media">
           ${createImage(application, 'application-card-image', 'application-card-fallback')}
-          <button
-            class="favorite-button${isFavorite ? ' is-favorite' : ''}"
-            type="button"
-            data-action="favorite"
-            data-application-id="${escapeHtml(application.id)}"
-            aria-pressed="${String(isFavorite)}"
-            aria-label="${isFavorite ? 'Remover' : 'Adicionar'} ${escapeHtml(application.name)} ${isFavorite ? 'dos' : 'aos'} favoritos"
-            title="${isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}"
-          >
-            <span aria-hidden="true">${isFavorite ? '★' : '☆'}</span>
-          </button>
         </div>
 
         <div class="application-card-copy">
@@ -71,7 +60,6 @@ export function createApplicationCard(application, context) {
             <h2 class="application-card-title" title="${escapeHtml(application.name)}">
               ${escapeHtml(application.name)}
             </h2>
-            <span class="application-card-version">${escapeHtml(application.version)}</span>
           </header>
 
           <p class="application-card-description">${escapeHtml(application.shortDescription)}</p>
@@ -81,6 +69,21 @@ export function createApplicationCard(application, context) {
             <span class="application-card-category">${escapeHtml(application.category)}</span>
           </div>
         </div>
+      </div>
+
+      <div class="application-card-header-actions">
+        <span class="application-card-version">${escapeHtml(application.version)}</span>
+        <button
+          class="favorite-button${isFavorite ? ' is-favorite' : ''}"
+          type="button"
+          data-action="favorite"
+          data-application-id="${escapeHtml(application.id)}"
+          aria-pressed="${String(isFavorite)}"
+          aria-label="${isFavorite ? 'Remover' : 'Adicionar'} ${escapeHtml(application.name)} ${isFavorite ? 'dos' : 'aos'} favoritos"
+          title="${isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}"
+        >
+          <span aria-hidden="true">${isFavorite ? '★' : '☆'}</span>
+        </button>
       </div>
 
       <footer class="application-card-actions">

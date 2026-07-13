@@ -16,6 +16,7 @@
 }
 
 .dialog-shell {
+  width: 100%;
   max-height: inherit;
   overflow: hidden;
   display: grid;
@@ -23,8 +24,13 @@
   background: var(--color-surface);
 }
 
+#aboutDialog {
+  width: min(34rem, calc(100vw - 2rem));
+}
+
 .dialog-shell-compact {
-  max-width: 34rem;
+  width: 100%;
+  max-width: none;
 }
 
 .dialog-header,
