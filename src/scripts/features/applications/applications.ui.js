@@ -48,7 +48,7 @@ export function createApplicationCard(application, context) {
       class="application-card${isSelected ? ' is-selected' : ''}"
       data-application-id="${escapeHtml(application.id)}"
       tabindex="0"
-      aria-label="Selecionar ${escapeHtml(application.name)}"
+      aria-label="Selecionar ou ver detalhes de ${escapeHtml(application.name)}"
     >
       <div class="application-card-main">
         <div class="application-card-media">

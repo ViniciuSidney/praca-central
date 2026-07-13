@@ -6,8 +6,8 @@ body {
 
 .skip-link {
   position: fixed;
-  top: var(--space-md);
-  left: var(--space-md);
+  top: calc(var(--space-md) + env(safe-area-inset-top));
+  left: calc(var(--space-md) + env(safe-area-inset-left));
   z-index: var(--z-skip-link);
   padding: 0.65rem 0.9rem;
   border-radius: var(--radius-sm);

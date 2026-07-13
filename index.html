@@ -2,7 +2,7 @@
 <html lang="pt-BR" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
       content="Praça Central: central organizada de acesso às aplicações desenvolvidas por Vinícius Sidney."
@@ -179,11 +179,18 @@
                   <span class="filter-count" id="filterCount" hidden>0</span>
                 </button>
 
-                <div class="filter-panel surface-panel" id="filterPanel" hidden>
+                <div
+                  class="filter-panel surface-panel"
+                  id="filterPanel"
+                  role="dialog"
+                  aria-labelledby="filterPanelTitle"
+                  tabindex="-1"
+                  hidden
+                >
                   <div class="filter-panel-header">
                     <div>
                       <span class="eyebrow">Refinar listagem</span>
-                      <h2>Filtros</h2>
+                      <h2 id="filterPanelTitle">Filtros</h2>
                     </div>
                     <button
                       class="icon-button"
@@ -252,6 +259,7 @@
     </div>
 
     <button class="sidebar-backdrop" id="sidebarBackdrop" type="button" aria-label="Fechar painel lateral" hidden></button>
+    <button class="filter-backdrop" id="filterBackdrop" type="button" aria-label="Fechar filtros" hidden></button>
 
     <dialog class="app-dialog" id="detailsDialog" aria-labelledby="detailsTitle">
       <div class="dialog-shell">

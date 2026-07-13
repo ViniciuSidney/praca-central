@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "summary": [
+    {
+      "viewport": "360x640",
+      "status": "OK",
+      "semRolagemGlobal": true,
+      "duasColunas": false,
+      "alvosToque44px": true,
+      "filtro": "bottom-sheet",
+      "filtroDentroViewport": true,
+      "cardAbreDetalhes": true,
+      "rodape": "grid",
+      "drawerInerteFechado": true
+    },
+    {
+      "viewport": "390x844",
+      "status": "OK",
+      "semRolagemGlobal": true,
+      "duasColunas": false,
+      "alvosToque44px": true,
+      "filtro": "bottom-sheet",
+      "filtroDentroViewport": true,
+      "cardAbreDetalhes": true,
+      "rodape": "grid",
+      "drawerInerteFechado": true
+    },
+    {
+      "viewport": "412x915",
+      "status": "OK",
+      "semRolagemGlobal": true,
+      "duasColunas": false,
+      "alvosToque44px": true,
+      "filtro": "bottom-sheet",
+      "filtroDentroViewport": true,
+      "cardAbreDetalhes": true,
+      "rodape": "grid",
+      "drawerInerteFechado": true
+    },
+    {
+      "viewport": "768x1024",
+      "status": "OK",
+      "semRolagemGlobal": true,
+      "duasColunas": true,
+      "alvosToque44px": true,
+      "filtro": "dropdown",
+      "filtroDentroViewport": true,
+      "cardAbreDetalhes": true,
+      "rodape": "grid",
+      "drawerInerteFechado": true
+    },
+    {
+      "viewport": "844x390-landscape",
+      "status": "OK",
+      "semRolagemGlobal": true,
+      "duasColunas": true,
+      "alvosToque44px": true,
+      "filtro": "bottom-sheet",
+      "filtroDentroViewport": true,
+      "cardAbreDetalhes": true,
+      "rodape": "none",
+      "drawerInerteFechado": true
+    }
+  ],
+  "runtimeExceptions": 0
+}

@@ -116,3 +116,60 @@ Status: Pendente
 - [ ] O botão Abrir da Central de Estudos Web abre `https://viniciusidney.github.io/central-de-estudos-web/`.
 - [ ] A aplicação Resoluções continua exibida como indisponível.
 - [ ] Favoritos e recentes antigos de Agenda Escolar/Central de Estudos são migrados sem erro.
+
+## T16 — Breakpoints independentes
+- Em 768 × 1024, confirmar drawer lateral e galeria com duas colunas.
+- Em 700 px ou menos, confirmar galeria com uma coluna.
+
+Status: Automatizado — OK em 13/07/2026
+
+## T17 — Áreas de toque
+- Confirmar altura mínima de 44 px nos botões, campos, navegação e controles dos cards.
+- Verificar se ações vizinhas não são acionadas por engano.
+
+Status: Automatizado — OK em 13/07/2026
+
+## T18 — Safe areas
+- Testar em aparelho com notch ou barra inferior.
+- Confirmar que cabeçalho, drawer, filtros, modais e rodapé não ficam sob áreas físicas da tela.
+
+Status: Pendente em aparelho físico
+
+## T19 — Filtros móveis
+- Em 360 × 640, 390 × 844 e 412 × 915, abrir os filtros.
+- Confirmar bottom sheet, backdrop, fechamento por botão, backdrop e Esc.
+- Confirmar foco contido no painel pelo teclado.
+
+Status: Automatizado — OK em 13/07/2026
+
+## T20 — Comportamento dos cards móveis
+- Em largura até 900 px, tocar no corpo do card.
+- Confirmar abertura dos detalhes.
+- Confirmar que Abrir, Detalhes e Favorito continuam independentes.
+
+Status: Automatizado — OK em 13/07/2026
+
+## T21 — Teclado virtual
+- Focar as pesquisas principal e lateral em aparelho físico.
+- Confirmar ajuste da altura visual, ocultação temporária do rodapé e manutenção do campo visível.
+
+Status: Pendente em aparelho físico
+
+## T22 — Paisagem móvel
+- Testar em 844 × 390.
+- Confirmar rodapé oculto, filtros dentro da viewport, duas colunas e rolagem interna.
+
+Status: Automatizado — OK em 13/07/2026
+
+## T23 — Drawer e acessibilidade
+- Confirmar que o drawer fechado não recebe foco.
+- Abrir o drawer e navegar por Tab e Shift+Tab.
+- Fechar por botão, backdrop e Esc, verificando a devolução do foco.
+
+Status: Automatizado estruturalmente — OK em 13/07/2026
+
+## T24 — Modais móveis
+- Abrir detalhes e informações nas três larguras de celular.
+- Confirmar conteúdo rolável, botões alcançáveis e fechamento por botão, backdrop e Esc.
+
+Status: Automatizado estruturalmente — OK em 13/07/2026

@@ -6,6 +6,7 @@
   padding: 0.65rem;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
 
@@ -15,7 +16,7 @@
 
 .nav-item {
   min-width: max-content;
-  min-height: 2.65rem;
+  min-height: 2.75rem;
   flex: 1 0 auto;
   padding: 0.65rem 1rem;
   border: 1px solid transparent;
@@ -31,12 +32,6 @@
     transform var(--transition-fast);
 }
 
-.nav-item:hover {
-  border-color: var(--color-border-strong);
-  color: var(--color-text);
-  transform: translateY(-1px);
-}
-
 .nav-item:focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 2px;
@@ -46,4 +41,16 @@
   border-color: rgba(255, 255, 255, 0.08);
   background: var(--color-primary);
   color: var(--color-primary-contrast);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-item:hover {
+    border-color: var(--color-border-strong);
+    color: var(--color-text);
+    transform: translateY(-1px);
+  }
+
+  .nav-item.is-active:hover {
+    color: var(--color-primary-contrast);
+  }
 }

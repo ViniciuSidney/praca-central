@@ -60,4 +60,6 @@
   --z-filter: 30;
   --z-drawer: 60;
   --z-backdrop: 50;
+  --z-filter-backdrop: 70;
+  --z-filter-sheet: 80;
 }

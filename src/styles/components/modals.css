@@ -1,6 +1,6 @@
 .app-dialog {
   width: min(44rem, calc(100vw - 2rem));
-  max-height: min(42rem, calc(100dvh - 2rem));
+  max-height: min(42rem, calc(var(--app-viewport-height, 100dvh) - 2rem));
   overflow: hidden;
   margin: auto;
   border: 1px solid var(--color-border-strong);
@@ -47,12 +47,15 @@
 .dialog-body {
   min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: var(--space-lg);
 }
 
 .dialog-footer {
   justify-content: flex-end;
   border-top: 1px solid var(--color-border);
+  padding-bottom: calc(var(--space-md) + env(safe-area-inset-bottom));
 }
 
 .details-layout {
@@ -79,7 +82,8 @@
 .details-icon img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  padding: 0.25rem;
+  object-fit: contain;
 }
 
 .details-content {

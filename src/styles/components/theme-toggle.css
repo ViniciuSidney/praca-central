@@ -1,5 +1,5 @@
 .theme-toggle {
-  min-height: 2.65rem;
+  min-height: 2.75rem;
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
@@ -13,12 +13,6 @@
     background var(--transition-fast),
     border-color var(--transition-fast),
     transform var(--transition-fast);
-}
-
-.theme-toggle:hover {
-  border-color: var(--color-border-strong);
-  background: var(--color-surface-hover);
-  transform: translateY(-1px);
 }
 
 .theme-toggle:focus-visible {
@@ -41,4 +35,12 @@
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
   white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .theme-toggle:hover {
+    border-color: var(--color-border-strong);
+    background: var(--color-surface-hover);
+    transform: translateY(-1px);
+  }
 }
