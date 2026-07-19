@@ -3,7 +3,8 @@ import { readStorage, writeStorage } from '../../shared/storage.js';
 
 const APPLICATION_ID_ALIASES = Object.freeze({
   'agenda-escolar': 'note-and-finish',
-  'central-de-estudos': 'central-de-estudos-web'
+  'central-de-estudos': 'central-de-estudos-web',
+  resolucoes: 'test-quest'
 });
 
 function migrateApplicationIds(ids) {

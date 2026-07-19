@@ -54,22 +54,22 @@ export const applicationsData = [
     updatedAt: '2026-07-09'
   },
   {
-    id: 'resolucoes',
-    name: 'Resoluções',
-    shortDescription: 'Ambiente para resolver questões e registrar anotações.',
+    id: 'test-quest',
+    name: 'Test Quest',
+    shortDescription: 'Resolução de questões com organização e estudo ativo.',
     description:
-      'Aplicação de estudo ativo para questões objetivas e discursivas, com temporizador, anotações e continuidade de sessões.',
-    status: 'prototype',
-    statusLabel: 'Protótipo',
+      'Aplicação voltada à resolução de questões, com uma experiência organizada para praticar conteúdos e acompanhar os estudos.',
+    status: 'development',
+    statusLabel: 'Em desenvolvimento',
     category: 'Estudos e revisão',
-    version: 'v2',
-    url: '#',
-    image: null,
-    initials: 'RE',
+    version: 'v0.1',
+    url: 'https://viniciusidney.github.io/test-quest/',
+    image: './src/assets/icons/test-quest.png',
+    initials: 'TQ',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    tags: ['questões', 'estudo ativo', 'anotações'],
+    tags: ['questões', 'estudo ativo', 'avaliações'],
     favorite: false,
-    updatedAt: '2026-07-05'
+    updatedAt: '2026-07-19'
   },
   {
     id: 'central-de-estudos-web',

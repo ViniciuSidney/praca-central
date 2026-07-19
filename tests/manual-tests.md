@@ -101,7 +101,7 @@ Status: Pendente
 Status: Pendente
 
 ## T15 — Ícones e identidade
-- Confirmar os três ícones fornecidos nos cards, atalhos, painel lateral e modal correspondentes.
+- Confirmar os ícones fornecidos nos cards, atalhos, painel lateral e modal correspondentes, incluindo o Test Quest.
 - Confirmar o ícone da Praça Central no hero e na guia do navegador.
 - Confirmar que nenhuma imagem fica distorcida, cortada indevidamente ou causa deslocamento no layout.
 
@@ -113,9 +113,9 @@ Status: Pendente
 - [ ] O botão Abrir do Time Task abre `https://viniciusidney.github.io/time-task/`.
 - [ ] O botão Abrir do Note and Finish abre `https://viniciusidney.github.io/note-and-finish/`.
 - [ ] O botão Abrir do FlashCore abre `https://viniciusidney.github.io/flashcore/`.
+- [ ] O botão Abrir do Test Quest abre `https://viniciusidney.github.io/test-quest/`.
 - [ ] O botão Abrir da Central de Estudos Web abre `https://viniciusidney.github.io/central-de-estudos-web/`.
-- [ ] A aplicação Resoluções continua exibida como indisponível.
-- [ ] Favoritos e recentes antigos de Agenda Escolar/Central de Estudos são migrados sem erro.
+- [ ] Favoritos e recentes antigos de Agenda Escolar, Central de Estudos e Resoluções são migrados sem erro.
 
 ## T16 — Breakpoints independentes
 - Em 768 × 1024, confirmar drawer lateral e galeria com duas colunas.

@@ -134,4 +134,5 @@ features/applications/
 - Time Task: `https://viniciusidney.github.io/time-task/`
 - Note and Finish: `https://viniciusidney.github.io/note-and-finish/`
 - FlashCore: `https://viniciusidney.github.io/flashcore/`
+- Test Quest: `https://viniciusidney.github.io/test-quest/`
 - Central de Estudos Web: `https://viniciusidney.github.io/central-de-estudos-web/`

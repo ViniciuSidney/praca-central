@@ -16,7 +16,8 @@
 - documentação e testes atualizados;
 - ícones fornecidos para três aplicações integrados aos cards, atalhos e detalhes;
 - identidade da Praça Central no hero, favicon e manifesto;
-- links públicos do GitHub Pages para Time Task, Note and Finish, FlashCore e Central de Estudos Web;
+- links públicos do GitHub Pages para Time Task, Note and Finish, FlashCore, Test Quest e Central de Estudos Web;
+- Test Quest integrado com ícone próprio e migração do identificador anterior de Resoluções;
 - migração dos identificadores antigos salvos em favoritos e acessos recentes;
 - refinamento responsivo completo para celulares, tablets e modo paisagem;
 - normalização de finais de linha por `.gitattributes`;
