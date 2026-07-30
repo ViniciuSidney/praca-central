@@ -72,6 +72,24 @@ export const applicationsData = [
     updatedAt: '2026-07-19'
   },
   {
+    id: 'concept-compass',
+    name: 'Concept Compass',
+    shortDescription: 'Mapeie, organize e acompanhe seu conhecimento.',
+    description:
+      'Aplicação web local para construir e acompanhar um mapa de estudos organizado em Matéria, Tema e Assunto, com progresso, prioridades, pesquisa e backup.',
+    status: 'completed',
+    statusLabel: 'v0.1.1 publicada',
+    category: 'Organização de estudos',
+    version: 'v0.1.1',
+    url: 'https://viniciusidney.github.io/concept-compass/#/',
+    image: './src/assets/icons/concept-compass.png',
+    initials: 'CC',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    tags: ['conteúdos', 'matérias', 'temas', 'assuntos', 'progresso'],
+    favorite: false,
+    updatedAt: '2026-07-30'
+  },
+  {
     id: 'central-de-estudos-web',
     name: 'Central de Estudos Web',
     shortDescription: 'Projeto original de organização de conteúdos e estudos.',

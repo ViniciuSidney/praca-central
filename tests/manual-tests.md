@@ -101,7 +101,7 @@ Status: Pendente
 Status: Pendente
 
 ## T15 — Ícones e identidade
-- Confirmar os ícones fornecidos nos cards, atalhos, painel lateral e modal correspondentes, incluindo o Test Quest.
+- Confirmar os ícones fornecidos nos cards, atalhos, painel lateral e modal correspondentes, incluindo o Test Quest e o Concept Compass.
 - Confirmar o ícone da Praça Central no hero e na guia do navegador.
 - Confirmar que nenhuma imagem fica distorcida, cortada indevidamente ou causa deslocamento no layout.
 
@@ -114,6 +114,7 @@ Status: Pendente
 - [ ] O botão Abrir do Note and Finish abre `https://viniciusidney.github.io/note-and-finish/`.
 - [ ] O botão Abrir do FlashCore abre `https://viniciusidney.github.io/flashcore/`.
 - [ ] O botão Abrir do Test Quest abre `https://viniciusidney.github.io/test-quest/`.
+- [ ] O botão Abrir do Concept Compass abre `https://viniciusidney.github.io/concept-compass/#/`.
 - [ ] O botão Abrir da Central de Estudos Web abre `https://viniciusidney.github.io/central-de-estudos-web/`.
 - [ ] Favoritos e recentes antigos de Agenda Escolar, Central de Estudos e Resoluções são migrados sem erro.
 

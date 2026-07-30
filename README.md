@@ -43,7 +43,8 @@ O arquivo `.gitattributes` incluído padroniza arquivos de texto em LF e evita a
 
 - acima de 900 px: painel lateral visível;
 - até 900 px: painel lateral em drawer e cards abrindo detalhes ao toque;
-- acima de 700 px: grade com duas colunas;
+- acima de 1.500 px: grade com três colunas;
+- entre 701 px e 1.500 px: grade com duas colunas;
 - até 700 px: grade com uma coluna e filtros em bottom sheet;
 - telas de toque com até 520 px de altura: modo paisagem compacto e filtros em bottom sheet;
 - alvos de toque com pelo menos 44 px;
@@ -135,4 +136,5 @@ features/applications/
 - Note and Finish: `https://viniciusidney.github.io/note-and-finish/`
 - FlashCore: `https://viniciusidney.github.io/flashcore/`
 - Test Quest: `https://viniciusidney.github.io/test-quest/`
+- Concept Compass: `https://viniciusidney.github.io/concept-compass/#/`
 - Central de Estudos Web: `https://viniciusidney.github.io/central-de-estudos-web/`

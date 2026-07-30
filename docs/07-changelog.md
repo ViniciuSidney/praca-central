@@ -18,6 +18,7 @@
 - identidade da Praça Central no hero, favicon e manifesto;
 - links públicos do GitHub Pages para Time Task, Note and Finish, FlashCore, Test Quest e Central de Estudos Web;
 - Test Quest integrado com ícone próprio e migração do identificador anterior de Resoluções;
+- Concept Compass integrado com ícone próprio, versão v0.1.1 e link público do GitHub Pages;
 - migração dos identificadores antigos salvos em favoritos e acessos recentes;
 - refinamento responsivo completo para celulares, tablets e modo paisagem;
 - normalização de finais de linha por `.gitattributes`;

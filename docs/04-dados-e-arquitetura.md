@@ -42,3 +42,7 @@ O uso de `min-height: 0` nas áreas internas impede que o conteúdo expanda a p�
 
 ## Normalização do repositório
 O arquivo `.gitattributes` padroniza arquivos de texto em LF e marca imagens como binárias, reduzindo diffs artificiais entre sistemas operacionais.
+
+## Integrações atuais
+
+O cadastro inclui o Concept Compass com identificador `concept-compass`, ícone local e URL pública com rota inicial por fragmento (`#/`).
