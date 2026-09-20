@@ -1,95 +1,65 @@
-# Praça Central
+# Praça Central 🏛️
 
-Central pessoal para organizar e acessar as aplicações desenvolvidas por Vinícius Sidney.
+> Uma central web para organizar, explorar e acessar minhas aplicações em um único lugar.
 
-## Estado atual
+[🌐 Abrir Praça Central](https://viniciusidney.github.io/praca-central/)
 
-A base implementa a primeira versão funcional do novo layout da Praça Central:
+![Interface da Praça Central](docs/assets/praca-central-desktop.png)
 
-- interface fixa, sem rolagem global;
-- rolagem interna na listagem e no painel de atalhos;
-- cabeçalho com identidade, navegação e ações extras;
-- painel lateral com aplicação selecionada e acesso rápido;
-- pesquisa principal e pesquisa de atalhos;
+## Sobre o projeto
+
+A **Praça Central** é uma aplicação criada para reunir meus projetos web em uma interface única, organizada e rápida de usar.
+
+Em vez de depender apenas de uma lista de repositórios ou links espalhados, a aplicação funciona como um hub visual: cada projeto possui seu próprio card, informações de estado, categoria, versão e acesso direto quando existe uma publicação disponível.
+
+O projeto também funciona como uma camada de apresentação do meu ecossistema de aplicações, preservando projetos concluídos, aplicações em desenvolvimento e projetos legados que fazem parte da evolução do meu trabalho.
+
+## Funcionalidades
+
+- catálogo centralizado de aplicações;
+- pesquisa por nome, descrição, categoria, tags e tecnologias;
 - filtros por categoria, status e favoritos;
-- visualização em grade ou lista, salva no navegador;
-- favoritos e acessos recentes salvos no navegador;
-- modal de detalhes;
+- navegação entre aplicações, favoritos, projetos em desenvolvimento e acessos recentes;
+- favoritos persistidos no navegador;
+- registro de aplicações abertas recentemente;
+- visualização em grade ou lista;
+- painel lateral com aplicação selecionada e atalhos;
+- modal com informações detalhadas de cada projeto;
+- links diretos para aplicações publicadas;
 - tema claro e escuro persistente;
-- links públicos e ícones das aplicações disponíveis;
-- responsividade refinada para celular, tablet e modo paisagem.
+- interface responsiva para desktop, tablet e celular;
+- suporte a navegação por teclado e gerenciamento de foco;
+- adaptação para safe areas e teclado virtual em dispositivos móveis.
 
-## Execução
+## Catálogo atual
 
-Abra `index.html` com o Live Server. O JavaScript utiliza módulos ES, portanto o uso de servidor local é recomendado.
+A Praça Central reúne atualmente aplicações de estudo, produtividade, organização e jogos, incluindo:
 
-## Aplicação no repositório existente
+**Concept Compass · Study Stack · Test Quest · FlashCore · Trilha de Estudo · Note and Finish · Time Task · Merge Clicker · Central de Estudos Web**
 
-Este pacote não inclui a pasta `.git`. Antes de substituir os arquivos do projeto, preserve o repositório e trabalhe na branch responsiva:
-
-```bash
-git switch refactor/mobile-responsive
-```
-
-Caso ela ainda não exista:
-
-```bash
-git switch -c refactor/mobile-responsive
-```
-
-O arquivo `.gitattributes` incluído padroniza arquivos de texto em LF e evita alterações artificiais de quebra de linha.
-
-## Comportamento responsivo
-
-- acima de 900 px: painel lateral visível;
-- até 900 px: painel lateral em drawer e cards abrindo detalhes ao toque;
-- acima de 1.500 px: grade com três colunas;
-- entre 701 px e 1.500 px: grade com duas colunas;
-- até 700 px: grade com uma coluna e filtros em bottom sheet;
-- telas de toque com até 520 px de altura: modo paisagem compacto e filtros em bottom sheet;
-- alvos de toque com pelo menos 44 px;
-- suporte a safe areas por `viewport-fit=cover` e `env(safe-area-inset-*)`;
-- altura ajustada por `visualViewport` quando o teclado virtual é aberto.
-
-O relatório dos testes está em `tests/responsive-test-report.md`.
-
-## Cadastro das aplicações
-
-Edite:
+Os dados do catálogo ficam centralizados em:
 
 ```text
 src/scripts/data/applications.js
 ```
 
-Cada aplicação possui:
+Projetos sem publicação disponível podem permanecer no catálogo com o acesso desabilitado até que uma URL pública seja definida.
 
-```js
-{
-  id: 'flashcore',
-  name: 'FlashCore',
-  shortDescription: 'Descrição curta para o card.',
-  description: 'Descrição completa para o modal.',
-  status: 'development',
-  statusLabel: 'Em desenvolvimento',
-  category: 'Estudos e revisão',
-  version: 'Protótipo',
-  url: '#',
-  image: './src/assets/icons/flashcore.svg',
-  initials: 'FC',
-  technologies: ['HTML', 'CSS', 'JavaScript'],
-  tags: ['flashcards', 'revisão'],
-  favorite: true,
-  updatedAt: '2026-07-12'
-}
-```
+## Tecnologias
 
-Use a URL pública da aplicação quando ela estiver disponível no GitHub Pages. Mantenha `url: '#'` apenas para projetos ainda sem página publicada; nesse caso, o botão de abertura ficará desabilitado.
+- HTML5
+- CSS3
+- JavaScript
+- ES Modules
+- `localStorage`
+- Git e GitHub
+- GitHub Pages
 
-Os ícones ficam em `src/assets/icons/`. Utilize caminhos relativos iniciados por `./src/assets/icons/` para manter a compatibilidade com o Live Server e o GitHub Pages.
+O projeto não depende de framework ou backend para seu funcionamento atual.
 
 ## Arquitetura
 
-A feature de aplicações está dividida em:
+A funcionalidade principal de aplicações é separada em responsabilidades:
 
 ```text
 features/applications/
@@ -99,16 +69,71 @@ features/applications/
 └── applications.controller.js
 ```
 
-- `model`: valida e normaliza os dados;
-- `service`: pesquisa, filtros e persistência;
-- `ui`: criação e atualização da interface;
-- `controller`: estado, eventos, overlays, viewport e acessibilidade.
+- **Model:** valida e normaliza os dados das aplicações.
+- **Service:** concentra pesquisa, filtros, favoritos, recentes e persistência.
+- **UI:** cria e atualiza cards, listas, detalhes e estados visuais.
+- **Controller:** coordena estado, eventos, overlays, viewport e acessibilidade.
+
+Essa divisão evita concentrar toda a lógica em um único arquivo e facilita a evolução independente de cada parte da interface.
+
+## Responsividade e acessibilidade
+
+A Praça Central foi construída para manter uma experiência consistente em diferentes tamanhos de tela.
+
+Entre os comportamentos implementados estão:
+
+- painel lateral fixo em telas maiores e drawer em telas menores;
+- grade adaptativa de aplicações;
+- filtros em formato de bottom sheet no mobile;
+- alvos de toque com pelo menos 44 px;
+- suporte a `viewport-fit=cover` e safe areas;
+- adaptação ao `visualViewport` durante a abertura do teclado virtual;
+- contenção e devolução de foco em drawers e modais;
+- navegação por teclado;
+- skip link para acesso direto à região principal de aplicações.
+
+## Testes
+
+O projeto possui documentação de testes manuais e uma auditoria específica de responsividade.
+
+A auditoria responsiva automatizada já validou cenários em:
+
+```text
+360 × 640
+390 × 844
+412 × 915
+768 × 1024
+844 × 390
+```
+
+O catálogo atual também foi validado manualmente quanto a carregamento, pesquisa, filtros, abertura de aplicações, Recentes, Favoritos, persistência e detalhes dos cards.
+
+Os registros estão disponíveis em:
+
+- [`tests/manual-tests.md`](tests/manual-tests.md)
+- [`tests/responsive-test-report.md`](tests/responsive-test-report.md)
+- [`docs/06-testes.md`](docs/06-testes.md)
+
+Testes finais em dispositivos físicos continuam relevantes para comportamentos específicos de teclado virtual, notch e navegadores móveis.
+
+## Executar localmente
+
+Como o projeto utiliza módulos JavaScript, recomenda-se executá-lo por um servidor local.
+
+### Live Server
+
+1. Abra o repositório no Visual Studio Code.
+2. Clique com o botão direito em `index.html`.
+3. Selecione **Open with Live Server**.
+
+Também é possível utilizar outro servidor HTTP local.
 
 ## Estrutura principal
 
 ```text
-/
+praca-central/
 ├── docs/
+│   └── assets/
 ├── public/
 ├── src/
 │   ├── assets/
@@ -126,15 +151,31 @@ features/applications/
 │       └── utilities/
 ├── tests/
 ├── .gitattributes
+├── .gitignore
 ├── index.html
 └── README.md
 ```
 
-## Aplicações publicadas
+## Documentação
 
-- Time Task: `https://viniciusidney.github.io/time-task/`
-- Note and Finish: `https://viniciusidney.github.io/note-and-finish/`
-- FlashCore: `https://viniciusidney.github.io/flashcore/`
-- Test Quest: `https://viniciusidney.github.io/test-quest/`
-- Concept Compass: `https://viniciusidney.github.io/concept-compass/#/`
-- Central de Estudos Web: `https://viniciusidney.github.io/central-de-estudos-web/`
+A pasta [`docs/`](docs/) preserva a documentação de planejamento e evolução do projeto:
+
+- [`01-visao-do-projeto.md`](docs/01-visao-do-projeto.md)
+- [`02-requisitos-e-escopo.md`](docs/02-requisitos-e-escopo.md)
+- [`03-fluxos-e-telas.md`](docs/03-fluxos-e-telas.md)
+- [`04-dados-e-arquitetura.md`](docs/04-dados-e-arquitetura.md)
+- [`05-roadmap.md`](docs/05-roadmap.md)
+- [`06-testes.md`](docs/06-testes.md)
+- [`07-changelog.md`](docs/07-changelog.md)
+
+## Estado do projeto
+
+A Praça Central possui uma base funcional publicada e utilizável.
+
+O foco atual está em consolidar o projeto como hub público do portfólio, manter o catálogo sincronizado com a evolução das aplicações e continuar refinando a experiência com base no uso real.
+
+Possíveis evoluções futuras estão documentadas no [`roadmap`](docs/05-roadmap.md).
+
+## Autor
+
+Desenvolvido por **Vinícius Sidney**.
